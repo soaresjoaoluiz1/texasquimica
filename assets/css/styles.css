@@ -1242,15 +1242,12 @@ img { max-width: 100%; height: auto; display: block; }
   .form-wrap { grid-template-columns: 1fr; padding: 40px 32px; gap: 32px; }
 }
 
-/* Tablet menor: hero empilha e usa banner mobile */
+/* Tablet menor: hero empilha, sem banner */
 @media (max-width: 900px) {
   .hero {
     padding: 56px 0 48px;
-    min-height: 560px;
-    background:
-      linear-gradient(180deg, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.35) 40%, rgba(0,0,0,0.15) 75%, rgba(0,0,0,0.05) 100%),
-      url('../img/banner-hero-mobile.png') center center / cover no-repeat,
-      var(--color-bg);
+    min-height: auto;
+    background: var(--color-bg);
   }
   .hero-inner { display: block; }
   .hero-copy { max-width: 100%; }
@@ -1274,16 +1271,13 @@ img { max-width: 100%; height: auto; display: block; }
   .footer-nav { justify-content: center; }
 }
 
-/* Mobile: hero mais compacto e overlay mais forte */
+/* Mobile: hero preto puro, sem banner */
 @media (max-width: 820px) {
   :root { --header-height: 64px; }
   .hero {
     padding: 44px 0 40px;
-    min-height: 520px;
-    background:
-      linear-gradient(180deg, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.42) 40%, rgba(0,0,0,0.18) 75%, rgba(0,0,0,0.05) 100%),
-      url('../img/banner-hero-mobile.png') center center / cover no-repeat,
-      var(--color-bg);
+    min-height: auto;
+    background: var(--color-bg);
   }
   .container { padding: 0 16px; }
   .header-inner {
