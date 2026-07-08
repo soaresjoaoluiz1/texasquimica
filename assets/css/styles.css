@@ -164,9 +164,9 @@ img { max-width: 100%; height: auto; display: block; }
 
 .hero-title {
   margin: 0 0 32px;
-  font-size: clamp(38px, 5.2vw, 68px);
+  font-size: clamp(30px, 3.8vw, 52px);
   font-weight: 900;
-  line-height: 1.02;
+  line-height: 1.05;
   letter-spacing: -0.01em;
   text-transform: uppercase;
   color: var(--color-text);
@@ -316,7 +316,7 @@ img { max-width: 100%; height: auto; display: block; }
   .hero { padding: 36px 0 32px; }
   .hero-eyebrow { font-size: 12px; letter-spacing: 0.20em; margin-bottom: 16px; }
   .hero-title {
-    font-size: clamp(32px, 9vw, 44px);
+    font-size: clamp(26px, 7.5vw, 38px);
     margin-bottom: 20px;
   }
   .hero-title br { display: none; }
