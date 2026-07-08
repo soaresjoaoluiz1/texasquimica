@@ -146,12 +146,24 @@ img { max-width: 100%; height: auto; display: block; }
   .btn { padding: 12px 22px; font-size: 12px; }
 }
 
-/* Mobile: hamburger + logo + botao compacto */
+/* Mobile: hamburger na esquerda + logo na direita, sem CTA */
 @media (max-width: 820px) {
   :root { --header-height: 64px; }
   .container { padding: 0 16px; }
-  .header-inner { gap: 12px; }
-  .nav-toggle { display: inline-flex; }
+  .header-inner {
+    gap: 12px;
+    justify-content: space-between;
+  }
+  .nav-toggle {
+    display: inline-flex;
+    order: 1;
+  }
+  .brand {
+    order: 2;
+    margin-left: auto;
+  }
+  .brand img { height: 34px; }
+  .header-cta { display: none; }
   .site-nav {
     display: none;
     position: absolute;
@@ -163,6 +175,7 @@ img { max-width: 100%; height: auto; display: block; }
     flex-direction: column;
     gap: 0;
     padding: 16px 24px;
+    order: 3;
   }
   .site-nav.is-open { display: flex; }
   .site-nav a {
@@ -172,6 +185,4 @@ img { max-width: 100%; height: auto; display: block; }
     text-align: left;
   }
   .site-nav a:last-child { border-bottom: none; }
-  .brand img { height: 34px; }
-  .header-cta { padding: 10px 16px; font-size: 11px; letter-spacing: 0.08em; }
 }
