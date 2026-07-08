@@ -136,6 +136,119 @@ img { max-width: 100%; height: auto; display: block; }
 .nav-toggle svg { width: 26px; height: 26px; }
 
 /* ================================================
+   HERO
+   ================================================ */
+.hero {
+  background: var(--color-bg);
+  padding: 72px 0 56px;
+  overflow: hidden;
+}
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.hero-copy { max-width: 640px; }
+
+.hero-eyebrow {
+  margin: 0 0 24px;
+  color: var(--color-red);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.hero-title {
+  margin: 0 0 32px;
+  font-size: clamp(38px, 5.2vw, 68px);
+  font-weight: 900;
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--color-text);
+}
+.hero-title .text-red { color: var(--color-red); }
+
+.hero-lead {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+  max-width: 520px;
+}
+
+/* Placeholder da imagem do hero */
+.hero-visual { position: relative; }
+.hero-visual-placeholder {
+  aspect-ratio: 16 / 10;
+  border: 2px dashed #333;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  text-align: center;
+}
+.hero-visual-placeholder span {
+  color: #555;
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  max-width: 380px;
+}
+
+/* Faixa de features */
+.hero-features {
+  list-style: none;
+  margin: 56px 0 0;
+  padding: 0;
+  display: flex;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+
+.hero-feature {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 220px;
+}
+
+.hero-feature-icon {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  background: rgba(227, 30, 36, 0.12);
+  color: var(--color-red);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-feature-icon svg { width: 22px; height: 22px; }
+
+.hero-feature-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.hero-feature-text strong {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--color-text);
+}
+.hero-feature-text span {
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
+/* ================================================
    RESPONSIVO
    ================================================ */
 
@@ -144,6 +257,19 @@ img { max-width: 100%; height: auto; display: block; }
   .site-nav { gap: 22px; }
   .site-nav a { font-size: 12px; letter-spacing: 0.10em; }
   .btn { padding: 12px 22px; font-size: 12px; }
+  .hero-inner { gap: 32px; }
+  .hero-features { gap: 32px; }
+}
+
+/* Tablet menor: hero empilha */
+@media (max-width: 900px) {
+  .hero { padding: 48px 0 40px; }
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .hero-copy { max-width: 100%; }
+  .hero-lead br { display: none; }
 }
 
 /* Mobile: hamburger na esquerda + logo na direita, sem CTA */
@@ -185,4 +311,20 @@ img { max-width: 100%; height: auto; display: block; }
     text-align: left;
   }
   .site-nav a:last-child { border-bottom: none; }
+
+  /* Hero mobile */
+  .hero { padding: 36px 0 32px; }
+  .hero-eyebrow { font-size: 12px; letter-spacing: 0.20em; margin-bottom: 16px; }
+  .hero-title {
+    font-size: clamp(32px, 9vw, 44px);
+    margin-bottom: 20px;
+  }
+  .hero-title br { display: none; }
+  .hero-lead { font-size: 15px; }
+  .hero-features {
+    margin-top: 36px;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .hero-feature { min-width: 0; }
 }
