@@ -1288,7 +1288,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* Mobile: hero preto puro, sem banner */
 @media (max-width: 820px) {
-  :root { --header-height: 64px; }
+  :root { --header-height: 72px; }
   .hero {
     padding: 44px 0 40px;
     min-height: auto;
@@ -1307,7 +1307,7 @@ img { max-width: 100%; height: auto; display: block; }
   .brand {
     order: 1;
   }
-  .brand img { height: 34px; }
+  .brand img { height: 46px; }
   .header-cta { display: none; }
   .site-nav {
     display: none;
