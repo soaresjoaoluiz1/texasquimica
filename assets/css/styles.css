@@ -34,7 +34,19 @@
 
 /* Reset minimo */
 *, *::before, *::after { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; }
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+/* Compensa header sticky no scroll ancorado */
+section[id],
+main [id] {
+  scroll-margin-top: calc(var(--header-height) + 16px);
+}
 body {
   margin: 0;
   font-family: var(--font-family-base);
@@ -421,16 +433,12 @@ img { max-width: 100%; height: auto; display: block; }
 .stat-item { display: flex; align-items: center; gap: 16px; }
 .stat-icon {
   flex-shrink: 0;
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  border: 1.5px solid var(--color-red);
   color: var(--color-red);
   display: inline-flex;
   align-items: center;
   justify-content: center;
 }
-.stat-icon svg { width: 26px; height: 26px; }
+.stat-icon svg { width: 42px; height: 42px; }
 .stat-text { display: flex; flex-direction: column; gap: 2px; }
 .stat-text strong {
   font-size: 30px;
