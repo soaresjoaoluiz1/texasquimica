@@ -487,27 +487,16 @@ img { max-width: 100%; height: auto; display: block; }
   border-color: rgba(227,30,36,0.4);
 }
 .cat-img {
+  width: 100%;
   aspect-ratio: 4 / 3;
-  background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
-  position: relative;
+  object-fit: cover;
+  display: block;
+  background: #0a0a0a;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.cat-img::after {
-  content: attr(aria-label);
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #333;
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+.cat-card:hover .cat-img {
+  transform: scale(1.04);
 }
-.cat-img-1 { background: radial-gradient(circle at 30% 40%, #202020, #050505); }
-.cat-img-2 { background: radial-gradient(circle at 60% 50%, #1c1c1c, #050505); }
-.cat-img-3 { background: radial-gradient(circle at 40% 60%, #181818, #050505); }
-.cat-img-4 { background: radial-gradient(circle at 50% 40%, #1e1e1e, #050505); }
-.cat-img-5 { background: radial-gradient(circle at 55% 55%, #221010, #050505); }
 
 .cat-body { padding: 22px 20px 24px; }
 .cat-pin {
