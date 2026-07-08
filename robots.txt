@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /assets/img/tmp/
+
+Sitemap: https://revendedor.texasquimica.com.br/sitemap.xml
