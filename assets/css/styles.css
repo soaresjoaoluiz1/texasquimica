@@ -235,16 +235,12 @@ img { max-width: 100%; height: auto; display: block; }
 
 .hero-feature-icon {
   flex-shrink: 0;
-  width: 44px;
-  height: 44px;
-  border-radius: 8px;
-  background: rgba(227, 30, 36, 0.12);
   color: var(--color-red);
   display: inline-flex;
   align-items: center;
   justify-content: center;
 }
-.hero-feature-icon svg { width: 22px; height: 22px; }
+.hero-feature-icon svg { width: 32px; height: 32px; }
 
 .hero-feature-text {
   display: flex;
