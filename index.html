@@ -6,23 +6,27 @@
 <meta name="theme-color" content="#000000">
 
 <!-- ============= SEO PRIMARY ============= -->
-<title>Seja Revendedor Texas Química | Produtos Automotivos Direto da Indústria</title>
-<meta name="description" content="Revenda produtos automotivos Texas Química: MAX, DX Solupan, Ativado, Multiuso, Moll Pro e mais. Margem competitiva, compra direto da indústria e suporte comercial em todo o Brasil.">
-<meta name="keywords" content="revenda produtos automotivos, texas quimica revendedor, distribuidor produtos limpeza automotiva, produtos limpeza carros atacado, revenda shampoo automotivo, distribuidor desengraxante">
+<title>Revendedor Texas Química | Produtos Automotivos Direto da Fábrica</title>
+<meta name="description" content="Torne-se revendedor Texas Química: linha automotiva direto da indústria, margem competitiva e suporte comercial em todo Brasil. Solicite sua condição.">
 <meta name="author" content="Texas Química">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="language" content="pt-BR">
 <meta name="geo.region" content="BR">
 <meta name="geo.placename" content="Brasil">
+<meta name="format-detection" content="telephone=yes">
 
 <link rel="canonical" href="https://revendedor.texasquimica.com.br/">
+
+<!-- ============= PRELOAD LCP ============= -->
+<link rel="preload" as="image" href="assets/img/logo-texas-quimica.png" fetchpriority="high">
+<link rel="preload" as="style" href="assets/css/styles.css">
 
 <!-- ============= OPEN GRAPH ============= -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Texas Química">
 <meta property="og:locale" content="pt_BR">
-<meta property="og:title" content="Seja Revendedor Texas Química | Produtos Automotivos Direto da Indústria">
-<meta property="og:description" content="Produtos automotivos de alta qualidade, margem competitiva e compra direto da indústria. Solicite condição comercial para sua loja.">
+<meta property="og:title" content="Revendedor Texas Química | Produtos Automotivos Direto da Fábrica">
+<meta property="og:description" content="Produtos automotivos de alta qualidade, margem competitiva e compra direto da indústria. Solicite condição comercial.">
 <meta property="og:url" content="https://revendedor.texasquimica.com.br/">
 <meta property="og:image" content="https://revendedor.texasquimica.com.br/assets/img/logo-texas-quimica.png">
 <meta property="og:image:width" content="768">
@@ -45,14 +49,27 @@
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Organization",
+      "@type": ["Organization", "Manufacturer"],
       "@id": "https://revendedor.texasquimica.com.br/#organization",
       "name": "Texas Química",
+      "alternateName": "Texas Química Indústria",
       "url": "https://texasquimica.com.br/",
-      "logo": "https://revendedor.texasquimica.com.br/assets/img/logo-texas-quimica.png",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://revendedor.texasquimica.com.br/assets/img/logo-texas-quimica.png",
+        "width": 768,
+        "height": 262
+      },
       "description": "Indústria brasileira de produtos automotivos com mais de 20 anos de mercado, +100 produtos e presença em todo o Brasil.",
       "foundingDate": "2005",
       "areaServed": { "@type": "Country", "name": "Brasil" },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "sales",
+        "areaServed": "BR",
+        "availableLanguage": ["pt-BR"],
+        "url": "https://revendedor.texasquimica.com.br/#solicitar"
+      },
       "sameAs": [
         "https://www.instagram.com/texasquimica",
         "https://www.facebook.com/texasquimica",
@@ -121,6 +138,8 @@
 </head>
 <body>
 
+<a href="#solicitar" class="skip-link">Ir para o formulário</a>
+
 <!-- ============= HEADER ============= -->
 <header class="site-header">
   <div class="container header-inner">
@@ -135,8 +154,8 @@
     </button>
 
     <!-- Logo -->
-    <a href="#" class="brand" aria-label="Texas Química">
-      <img src="assets/img/logo-texas-quimica.png" alt="Texas Química" width="146" height="50" fetchpriority="high">
+    <a href="#" class="brand" aria-label="Página inicial Texas Química">
+      <img src="assets/img/logo-texas-quimica.png" alt="Logotipo Texas Química, indústria de produtos automotivos" width="146" height="50" fetchpriority="high" decoding="async">
     </a>
 
     <!-- Menu desktop -->
@@ -158,13 +177,13 @@
 
 <!-- ============= HERO ============= -->
 <main>
-  <section class="hero" aria-label="Revenda produtos automotivos Texas Química">
+  <section class="hero" aria-labelledby="h-hero">
     <div class="container hero-inner">
 
       <!-- Coluna texto -->
       <div class="hero-copy">
         <p class="hero-eyebrow">LINHA AUTOMOTIVA TEXAS</p>
-        <h1 class="hero-title">
+        <h1 id="h-hero" class="hero-title">
           REVENDA PRODUTOS<br>
           AUTOMOTIVOS DE<br>
           <span class="text-red">ALTA QUALIDADE</span><br>
@@ -271,10 +290,10 @@
   </section>
 
   <!-- ============= CATEGORIAS ============= -->
-  <section class="section categorias reveal" id="produtos" aria-label="Categorias em destaque">
+  <section class="section categorias reveal" id="produtos" aria-labelledby="h-categorias">
     <div class="container">
       <header class="section-head">
-        <h2 class="section-title">CATEGORIAS <span class="text-red">EM DESTAQUE</span></h2>
+        <h2 id="h-categorias" class="section-title">CATEGORIAS <span class="text-red">EM DESTAQUE</span></h2>
         <p class="section-sub">Soluções completas para todas as etapas da limpeza e cuidado automotivo.</p>
       </header>
 
@@ -334,11 +353,11 @@
   </section>
 
   <!-- ============= PRODUTOS DESTAQUE ============= -->
-  <section class="section produtos-destaque reveal" aria-label="Produtos destaque">
+  <section class="section produtos-destaque reveal" aria-labelledby="h-produtos-destaque">
     <div class="container">
       <header class="section-head section-head-row">
         <div>
-          <h2 class="section-title">PRODUTOS <span class="text-red">DESTAQUE</span></h2>
+          <h2 id="h-produtos-destaque" class="section-title">PRODUTOS <span class="text-red">DESTAQUE</span></h2>
           <p class="section-sub">Os campeões de venda da Linha Automotiva Texas.</p>
         </div>
         <a href="#solicitar" class="link-all">VER TODOS OS PRODUTOS <span aria-hidden="true">→</span></a>
@@ -398,11 +417,11 @@
   </section>
 
   <!-- ============= REGIÃO ============= -->
-  <section class="section reveal" id="revendedores" aria-label="A Texas ajuda sua região">
+  <section class="section reveal" id="revendedores" aria-labelledby="h-regiao">
     <div class="container">
       <div class="panel panel-split">
         <div class="panel-copy">
-          <h2 class="section-title">A TEXAS AJUDA SUA REGIÃO<br>A <span class="text-red">SABER ONDE COMPRAR</span></h2>
+          <h2 id="h-regiao" class="section-title">A TEXAS AJUDA SUA REGIÃO<br>A <span class="text-red">SABER ONDE COMPRAR</span></h2>
           <p class="section-sub">Apoiamos sua revenda com ações de marketing que geram demanda e aumentam suas vendas.</p>
           <ul class="mini-features" role="list">
             <li>
@@ -440,12 +459,12 @@
   </section>
 
   <!-- ============= INDÚSTRIA ============= -->
-  <section class="section reveal" id="vantagens" aria-label="Compra direto da indústria">
+  <section class="section reveal" id="vantagens" aria-labelledby="h-industria">
     <div class="container">
       <div class="panel panel-split panel-split-reverse">
         <div class="panel-visual panel-visual-industria" role="img" aria-label="Fábrica Texas Química"></div>
         <div class="panel-copy">
-          <h2 class="section-title">COMPRA <span class="text-red">DIRETO DA INDÚSTRIA</span></h2>
+          <h2 id="h-industria" class="section-title">COMPRA <span class="text-red">DIRETO DA INDÚSTRIA</span></h2>
           <p class="section-sub">Qualidade garantida, preço competitivo e segurança para o seu negócio.</p>
           <ul class="mini-features mini-features-row" role="list">
             <li>
@@ -482,10 +501,10 @@
   </section>
 
   <!-- ============= COMO FUNCIONA ============= -->
-  <section class="section como reveal" id="suporte" aria-label="Como funciona">
+  <section class="section como reveal" id="suporte" aria-labelledby="h-como">
     <div class="container">
       <header class="section-head">
-        <h2 class="section-title">COMO <span class="text-red">FUNCIONA</span></h2>
+        <h2 id="h-como" class="section-title">COMO <span class="text-red">FUNCIONA</span></h2>
         <p class="section-sub">É simples, rápido e seguro.</p>
       </header>
 
@@ -557,11 +576,11 @@
   </section>
 
   <!-- ============= FORM ============= -->
-  <section class="section form-section reveal" id="solicitar" aria-label="Solicitar condição comercial">
+  <section class="section form-section reveal" id="solicitar" aria-labelledby="h-form">
     <div class="container">
       <div class="form-wrap">
         <div class="form-copy">
-          <h2 class="section-title">PRONTO PARA LEVAR<br>A LINHA TEXAS PARA<br><span class="text-red">SUA LOJA?</span></h2>
+          <h2 id="h-form" class="section-title">PRONTO PARA LEVAR<br>A LINHA TEXAS PARA<br><span class="text-red">SUA LOJA?</span></h2>
           <p class="section-sub">Preencha o formulário e solicite sua condição comercial.<br>Nosso time entrará em contato o mais breve possível.</p>
         </div>
         <form class="form-card" action="#" method="post" novalidate>
@@ -594,8 +613,8 @@
   <!-- ============= FOOTER ============= -->
   <footer class="site-footer" id="sobre">
     <div class="container footer-inner">
-      <a href="#" class="footer-brand" aria-label="Texas Química">
-        <img src="assets/img/logo-texas-quimica.png" alt="Texas Química" width="146" height="50">
+      <a href="#" class="footer-brand" aria-label="Página inicial Texas Química">
+        <img src="assets/img/logo-texas-quimica.png" alt="Logotipo Texas Química" width="146" height="50" loading="lazy" decoding="async">
       </a>
       <nav class="footer-nav" aria-label="Rodapé">
         <a href="#produtos">PRODUTOS</a>

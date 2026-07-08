@@ -17,6 +17,21 @@
   --header-height: 76px;
 }
 
+/* Skip link (a11y) */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 1000;
+  padding: 12px 20px;
+  background: var(--color-red);
+  color: #fff;
+  font-weight: 700;
+  font-size: 13px;
+  border-radius: 0 0 8px 0;
+}
+.skip-link:focus { left: 0; }
+
 /* Reset minimo */
 *, *::before, *::after { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
@@ -844,11 +859,11 @@ img { max-width: 100%; height: auto; display: block; }
   }
   .nav-toggle {
     display: inline-flex;
-    order: 1;
-  }
-  .brand {
     order: 2;
     margin-left: auto;
+  }
+  .brand {
+    order: 1;
   }
   .brand img { height: 34px; }
   .header-cta { display: none; }
