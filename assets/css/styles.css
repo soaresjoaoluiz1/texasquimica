@@ -359,21 +359,19 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .panel-split-reverse .panel-copy { order: 1; }
 
-.panel-visual-regiao {
-  background: radial-gradient(circle at 65% 45%, rgba(227,30,36,0.18) 0%, transparent 55%), linear-gradient(180deg, #0f0f0f 0%, #050505 100%);
-  position: relative;
+/* Painel regiao: bg image completo por baixo */
+.panel-bg-regiao {
+  background:
+    linear-gradient(90deg, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.72) 32%, rgba(10,10,10,0.30) 60%, rgba(10,10,10,0.05) 100%),
+    url('../img/texas-points.png') center right / cover no-repeat,
+    #0a0a0a;
+  border-color: var(--color-border);
 }
-.panel-visual-regiao::after {
-  content: "MAPA BR + FACHADA TEXAS QUÍMICA";
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #444;
-  font-size: 12px;
-  letter-spacing: 0.14em;
+.panel-bg-regiao .panel-visual-regiao {
+  background: transparent;
+  border-left: none;
 }
+.panel-bg-regiao .panel-visual-regiao::after { display: none; }
 .panel-visual-industria {
   background: linear-gradient(180deg, #101010 0%, #050505 100%);
   position: relative;
@@ -1249,6 +1247,13 @@ img { max-width: 100%; height: auto; display: block; }
   .panel-split-reverse .panel-visual { order: 0; border-right: none; border-bottom: 1px solid var(--color-border); }
   .panel-split-reverse .panel-copy { order: 1; }
   .panel-visual { min-height: 220px; border-left: none; border-bottom: 1px solid var(--color-border); }
+  /* Painel regiao mobile: overlay vertical (mais forte em cima onde o texto vive) */
+  .panel-bg-regiao {
+    background:
+      linear-gradient(180deg, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.70) 45%, rgba(10,10,10,0.30) 75%, rgba(10,10,10,0.05) 100%),
+      url('../img/texas-points.png') center center / cover no-repeat,
+      #0a0a0a;
+  }
   .steps { grid-template-columns: 1fr; }
   .step-arrow { display: none; }
   .footer-inner {
