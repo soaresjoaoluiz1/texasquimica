@@ -364,7 +364,7 @@ img { max-width: 100%; height: auto; display: block; }
   position: relative;
   background:
     linear-gradient(90deg, rgba(10,10,10,0.94) 0%, rgba(10,10,10,0.72) 30%, rgba(10,10,10,0.28) 58%, rgba(10,10,10,0.02) 100%),
-    url('../img/texas-points.png') center right / cover no-repeat,
+    url('../img/texas-quimica-regiao.png') center right / cover no-repeat,
     #0a0a0a;
   border-top: 1px solid var(--color-border);
   border-bottom: 1px solid var(--color-border);
@@ -1265,7 +1265,7 @@ img { max-width: 100%; height: auto; display: block; }
   .section-bg-regiao {
     background:
       linear-gradient(180deg, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.70) 45%, rgba(10,10,10,0.30) 75%, rgba(10,10,10,0.05) 100%),
-      url('../img/texas-points.png') center center / cover no-repeat,
+      url('../img/texas-quimica-regiao.png') center center / cover no-repeat,
       #0a0a0a;
   }
   /* Painel industria mobile (dentro da caixinha) */
