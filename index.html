@@ -5,6 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#000000">
 
+<!-- ============= GOOGLE ANALYTICS 4 ============= -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-952XTVWTBV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-952XTVWTBV');
+</script>
+
 <!-- ============= SEO PRIMARY ============= -->
 <title>Revendedor Texas Química | Produtos Automotivos Direto da Fábrica</title>
 <meta name="description" content="Torne-se revendedor Texas Química: linha automotiva direto da indústria, margem competitiva e suporte comercial em todo Brasil. Solicite sua condição.">
@@ -777,7 +786,12 @@
     });
   }
 
-  // Form submit com loading -> redireciona pra obrigado
+  // Helper analytics
+  const track = (name, params) => {
+    if (typeof gtag === 'function') gtag('event', name, params || {});
+  };
+
+  // Form submit com loading -> dispara generate_lead -> redireciona pra obrigado
   const form = document.getElementById('form-solicitar');
   if (form) {
     const submitBtn = form.querySelector('.form-submit');
@@ -787,15 +801,75 @@
         const invalid = form.querySelector(':invalid');
         if (invalid) invalid.focus();
         form.reportValidity();
+        track('form_error', { form_id: 'solicitar' });
         return;
       }
       submitBtn.classList.add('is-loading');
       submitBtn.disabled = true;
+      const estado = form.querySelector('[name="estado"]').value;
+      track('generate_lead', {
+        event_category: 'form',
+        event_label: 'solicitar_condicao_comercial',
+        value: 1,
+        estado: estado || 'nao_informado'
+      });
       // TODO: substituir por POST real (Formspree, endpoint, etc)
       await new Promise(r => setTimeout(r, 700));
       window.location.href = 'obrigado.html';
     });
   }
+
+  // Tracking dos CTAs de WhatsApp
+  document.querySelectorAll('a[href*="wa.me"]').forEach(a => {
+    a.addEventListener('click', () => {
+      let location = 'unknown';
+      if (a.classList.contains('fab-whatsapp')) location = 'fab_flutuante';
+      else if (a.closest('.hero')) location = 'hero';
+      else if (a.closest('.footer-contact')) location = 'footer';
+      track('whatsapp_click', {
+        event_category: 'cta',
+        event_label: location,
+        link_url: a.href
+      });
+    });
+  });
+
+  // Tracking do CTA de scroll pro form (header + hero)
+  document.querySelectorAll('a[href="#solicitar"]').forEach(a => {
+    a.addEventListener('click', () => {
+      let location = 'unknown';
+      if (a.closest('.site-header')) location = 'header';
+      else if (a.closest('.hero')) location = 'hero_cta';
+      else if (a.closest('.produtos-destaque')) location = 'produtos';
+      else if (a.closest('.prod-card')) location = 'produto_card';
+      track('cta_click', {
+        event_category: 'cta',
+        event_label: 'solicitar_condicao_' + location
+      });
+    });
+  });
+
+  // Tracking do tel: (clique no telefone do footer)
+  document.querySelectorAll('a[href^="tel:"]').forEach(a => {
+    a.addEventListener('click', () => {
+      track('phone_click', { event_category: 'cta', link_url: a.href });
+    });
+  });
+
+  // Tracking do mailto: (clique no email do footer)
+  document.querySelectorAll('a[href^="mailto:"]').forEach(a => {
+    a.addEventListener('click', () => {
+      track('email_click', { event_category: 'cta', link_url: a.href });
+    });
+  });
+
+  // Tracking dos socials (Instagram, Facebook, site oficial)
+  document.querySelectorAll('.footer-social a').forEach(a => {
+    a.addEventListener('click', () => {
+      const label = a.getAttribute('aria-label') || 'unknown';
+      track('social_click', { event_category: 'social', event_label: label, link_url: a.href });
+    });
+  });
 })();
 </script>
 

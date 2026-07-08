@@ -5,6 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#000000">
 
+<!-- ============= GOOGLE ANALYTICS 4 ============= -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-952XTVWTBV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-952XTVWTBV');
+  // Conversao ao chegar na pagina de obrigado
+  gtag('event', 'generate_lead', {
+    event_category: 'form',
+    event_label: 'solicitar_condicao_comercial',
+    value: 1,
+    page_location: window.location.href
+  });
+</script>
+
 <!-- ============= SEO ============= -->
 <title>Solicitação recebida | Texas Química Revendedor</title>
 <meta name="description" content="Obrigado! Recebemos sua solicitação para se tornar revendedor Texas Química. Nosso time comercial entra em contato em até 24 horas.">
