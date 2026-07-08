@@ -372,21 +372,19 @@ img { max-width: 100%; height: auto; display: block; }
   border-left: none;
 }
 .panel-bg-regiao .panel-visual-regiao::after { display: none; }
-.panel-visual-industria {
-  background: linear-gradient(180deg, #101010 0%, #050505 100%);
-  position: relative;
+/* Painel industria: bg image completo por baixo (imagem esq, texto dir) */
+.panel-bg-industria {
+  background:
+    linear-gradient(270deg, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.72) 32%, rgba(10,10,10,0.30) 60%, rgba(10,10,10,0.05) 100%),
+    url('../img/texasquimica-loja.png') center left / cover no-repeat,
+    #0a0a0a;
+  border-color: var(--color-border);
 }
-.panel-visual-industria::after {
-  content: "FACHADA DA INDÚSTRIA";
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #444;
-  font-size: 12px;
-  letter-spacing: 0.14em;
+.panel-bg-industria .panel-visual-industria {
+  background: transparent;
+  border-right: none;
 }
+.panel-bg-industria .panel-visual-industria::after { display: none; }
 
 /* Mini features (usadas em painéis) */
 .mini-features {
@@ -1252,6 +1250,13 @@ img { max-width: 100%; height: auto; display: block; }
     background:
       linear-gradient(180deg, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.70) 45%, rgba(10,10,10,0.30) 75%, rgba(10,10,10,0.05) 100%),
       url('../img/texas-points.png') center center / cover no-repeat,
+      #0a0a0a;
+  }
+  /* Painel industria mobile: split-reverse (imagem topo, texto embaixo) */
+  .panel-bg-industria {
+    background:
+      linear-gradient(0deg, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.70) 45%, rgba(10,10,10,0.30) 75%, rgba(10,10,10,0.05) 100%),
+      url('../img/texasquimica-loja.png') center center / cover no-repeat,
       #0a0a0a;
   }
   .steps { grid-template-columns: 1fr; }
