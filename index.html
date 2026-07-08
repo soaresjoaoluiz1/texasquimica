@@ -757,11 +757,10 @@
     });
   }
 
-  // Form submit com loading + success
+  // Form submit com loading -> redireciona pra obrigado
   const form = document.getElementById('form-solicitar');
   if (form) {
     const submitBtn = form.querySelector('.form-submit');
-    const successMsg = form.querySelector('.form-success');
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       if (!form.checkValidity()) {
@@ -773,11 +772,8 @@
       submitBtn.classList.add('is-loading');
       submitBtn.disabled = true;
       // TODO: substituir por POST real (Formspree, endpoint, etc)
-      await new Promise(r => setTimeout(r, 900));
-      submitBtn.classList.remove('is-loading');
-      submitBtn.hidden = true;
-      successMsg.hidden = false;
-      successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      await new Promise(r => setTimeout(r, 700));
+      window.location.href = 'obrigado.html';
     });
   }
 })();
