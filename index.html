@@ -813,6 +813,18 @@ src="https://www.facebook.com/tr?id=3300124963501472&ev=PageView&noscript=1"/></
     if (typeof fbq === 'function') fbq('trackCustom', event, params || {});
   };
 
+  // ============= URL PARAMS + UTMs (persistem por sessao) =============
+  const APPS_SCRIPT_URL = 'COLE_AQUI_A_URL_DO_APPS_SCRIPT';
+  const UTM_KEYS = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','gclid','fbclid'];
+  (function persistUTMs(){
+    const url = new URL(window.location.href);
+    UTM_KEYS.forEach(k => {
+      const v = url.searchParams.get(k);
+      if (v) sessionStorage.setItem('tx_' + k, v);
+    });
+  })();
+  const getUTM = (k) => sessionStorage.getItem('tx_' + k) || '';
+
   // Form submit com loading -> dispara generate_lead -> redireciona pra obrigado
   const form = document.getElementById('form-solicitar');
   if (form) {
@@ -841,8 +853,42 @@ src="https://www.facebook.com/tr?id=3300124963501472&ev=PageView&noscript=1"/></
         value: 1,
         currency: 'BRL'
       });
-      // TODO: substituir por POST real (Formspree, endpoint, etc)
-      await new Promise(r => setTimeout(r, 700));
+
+      // Monta payload completo pra Apps Script (planilha + CRM)
+      const payload = {
+        nome: form.nome.value.trim(),
+        empresa: form.empresa.value.trim(),
+        email: form.email.value.trim(),
+        telefone: form.telefone.value.trim(),
+        cidade: form.cidade.value.trim(),
+        estado: estado,
+        mensagem: (form.mensagem.value || '').trim(),
+        url: window.location.href,
+        referrer: document.referrer || '',
+        user_agent: navigator.userAgent,
+        timestamp_iso: new Date().toISOString(),
+        utm_source: getUTM('utm_source'),
+        utm_medium: getUTM('utm_medium'),
+        utm_campaign: getUTM('utm_campaign'),
+        utm_content: getUTM('utm_content'),
+        utm_term: getUTM('utm_term'),
+        gclid: getUTM('gclid'),
+        fbclid: getUTM('fbclid')
+      };
+
+      // Envia pro Apps Script (nao bloqueia redirect se falhar)
+      try {
+        if (APPS_SCRIPT_URL && !APPS_SCRIPT_URL.includes('COLE_AQUI')) {
+          await fetch(APPS_SCRIPT_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+            body: JSON.stringify(payload)
+          });
+        }
+      } catch (err) {
+        console.warn('Falha ao enviar pro Apps Script:', err);
+      }
+
       window.location.href = 'obrigado.html';
     });
   }
