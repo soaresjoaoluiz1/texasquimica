@@ -15,10 +15,9 @@
 
 // ============= CONFIG =============
 var SHEET_NAME = 'REVENDEDORES LP';
-var CRM_URL    = 'https://drosagencia.com.br/crm/api/webhooks/lead/texas-quimica-industria-e-comercio-de-produtos-quimicos-ltda';
-var CRM_TOKEN  = ''; // se o CRM exigir Bearer token, cole aqui
+var CRM_URL    = 'https://drosagencia.com.br/crm/api/webhooks/sheets/texas-quimica-industria-e-comercio-de-produtos-quimicos-ltda';
+var CRM_TOKEN  = ''; // /sheets nao exige token; deixa vazio
 var LEAD_TAG   = 'Landing Page Revendedores';
-var LEAD_ORIGIN = 'Landing Page Revendedores'; // origem/campanha visivel no CRM
 
 var HEADERS = [
   'Timestamp',
@@ -188,42 +187,55 @@ function normalizeFonte_(d) {
 }
 
 // ============= ENVIO PRO CRM DROS =============
+// Formato /api/webhooks/sheets/:accountSlug (do repo Agenciadouc/crm):
+// - name, phone, email, city, state, empresa, cpf_cnpj, instagram
+// - source, source_detail
+// - tag / tags (array, CSV ou string) -> cria tag no CRM se nao existir
+// - utm_*, gclid, fbclid, fbp, fbc, ad_id, campaign_id, form_id
+// - page_url, user_agent
+// O CRM automaticamente marca trabalha_anuncio=1 se detectar sinais de ad
+// (fbclid, gclid, utm_medium paid/cpc, source com 'fb/meta/ad', etc)
 function sendToCRM_(data, fonte) {
   if (!CRM_URL) return { status: 'sem_url', body: '' };
 
-  // Extrai DDD + telefone limpo
   var telClean = (data.telefone || '').replace(/\D/g, '');
 
-  var payload = {
-    // Identificacao do lead
-    nome: data.nome || '',
-    email: data.email || '',
-    telefone: telClean,
-    telefone_formatado: data.telefone || '',
-    empresa: data.empresa || '',
-    cidade: data.cidade || '',
-    estado: data.estado || '',
-    mensagem: data.mensagem || '',
+  // Mensagem do lead vira parte do source_detail (aparece no card do CRM)
+  var detailBits = [];
+  if (data.mensagem) detailBits.push('msg: ' + data.mensagem);
+  if (data.empresa)  detailBits.push('empresa: ' + data.empresa);
 
-    // Marcadores solicitados
-    anuncio: 'sim',
-    fonte: fonte,
-    origem: LEAD_ORIGIN,
+  var payload = {
+    // Identificacao (nomes que o /sheets aceita)
+    name: data.nome || '',
+    phone: telClean,
+    email: data.email || '',
+    city: data.cidade || '',
+    state: data.estado || '',
+    empresa: data.empresa || '',
+
+    // Origem: "fonte normalizada" vira o valor do campo "Origem" do lead no CRM
+    source: fonte || 'landing_page_revendedores',
+    source_detail: detailBits.join(' | '),
+
+    // Tag principal da campanha (CRM cria se nao existir, cor amarela default)
     tag: LEAD_TAG,
     tags: [LEAD_TAG],
 
-    // Rastreamento completo
-    url: data.url || '',
-    referrer: data.referrer || '',
-    utm_source: data.utm_source || '',
-    utm_medium: data.utm_medium || '',
+    // Tracking Meta/Google - CRM usa isso pra CAPI e pra auto-marcar trabalha_anuncio=1
+    utm_source:   data.utm_source || '',
+    utm_medium:   data.utm_medium || '',
     utm_campaign: data.utm_campaign || '',
-    utm_content: data.utm_content || '',
-    utm_term: data.utm_term || '',
-    gclid: data.gclid || '',
-    fbclid: data.fbclid || '',
-    user_agent: data.user_agent || '',
-    timestamp: data.timestamp_iso || new Date().toISOString()
+    utm_content:  data.utm_content || '',
+    utm_term:     data.utm_term || '',
+    gclid:        data.gclid || '',
+    fbclid:       data.fbclid || '',
+    fbp:          data.fbp || '',
+    fbc:          data.fbc || '',
+
+    // Contexto
+    page_url:   data.url || '',
+    user_agent: data.user_agent || ''
   };
 
   var headers = { 'Content-Type': 'application/json' };
