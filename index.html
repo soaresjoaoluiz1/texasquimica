@@ -14,6 +14,22 @@
   gtag('config', 'G-952XTVWTBV');
 </script>
 
+<!-- ============= META PIXEL ============= -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1338628978336553');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1338628978336553&ev=PageView&noscript=1"/></noscript>
+
 <!-- ============= SEO PRIMARY ============= -->
 <title>Revendedor Texas Química | Produtos Automotivos Direto da Fábrica</title>
 <meta name="description" content="Torne-se revendedor Texas Química: linha automotiva direto da indústria, margem competitiva e suporte comercial em todo Brasil. Solicite sua condição.">
@@ -786,9 +802,15 @@
     });
   }
 
-  // Helper analytics
+  // Helper analytics: dispara em GA4 e Meta Pixel simultaneamente
   const track = (name, params) => {
     if (typeof gtag === 'function') gtag('event', name, params || {});
+  };
+  const fbTrack = (event, params) => {
+    if (typeof fbq === 'function') fbq('track', event, params || {});
+  };
+  const fbTrackCustom = (event, params) => {
+    if (typeof fbq === 'function') fbq('trackCustom', event, params || {});
   };
 
   // Form submit com loading -> dispara generate_lead -> redireciona pra obrigado
@@ -813,6 +835,12 @@
         value: 1,
         estado: estado || 'nao_informado'
       });
+      fbTrack('Lead', {
+        content_name: 'Solicitar Condicao Comercial',
+        content_category: 'Revendedor',
+        value: 1,
+        currency: 'BRL'
+      });
       // TODO: substituir por POST real (Formspree, endpoint, etc)
       await new Promise(r => setTimeout(r, 700));
       window.location.href = 'obrigado.html';
@@ -831,6 +859,7 @@
         event_label: location,
         link_url: a.href
       });
+      fbTrack('Contact', { content_name: 'WhatsApp', source: location });
     });
   });
 
@@ -853,6 +882,7 @@
   document.querySelectorAll('a[href^="tel:"]').forEach(a => {
     a.addEventListener('click', () => {
       track('phone_click', { event_category: 'cta', link_url: a.href });
+      fbTrack('Contact', { content_name: 'Telefone' });
     });
   });
 
@@ -860,6 +890,7 @@
   document.querySelectorAll('a[href^="mailto:"]').forEach(a => {
     a.addEventListener('click', () => {
       track('email_click', { event_category: 'cta', link_url: a.href });
+      fbTrack('Contact', { content_name: 'Email' });
     });
   });
 
