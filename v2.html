@@ -166,6 +166,53 @@ src="https://www.facebook.com/tr?id=3300124963501472&ev=PageView&noscript=1"/></
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
+<!-- ============= CSS OVERRIDES v2 (fix mobile) ============= -->
+<style>
+  html, body { overflow-x: hidden !important; max-width: 100vw; }
+  * { box-sizing: border-box; }
+  .container { max-width: 100%; padding-left: 1.25rem; padding-right: 1.25rem; }
+  .hero-title, .section-title, h1, h2, h3 { overflow-wrap: break-word; word-wrap: break-word; hyphens: auto; }
+
+  @media (max-width: 768px) {
+    .hero-title { font-size: clamp(1.7rem, 7vw, 2.4rem) !important; line-height: 1.15 !important; }
+    .hero-title br { display: none; }
+    .hero-title .text-red { display: inline; }
+    .hero-lead { font-size: 0.95rem; line-height: 1.55; }
+    .section-title { font-size: clamp(1.5rem, 5.5vw, 2rem) !important; line-height: 1.2 !important; }
+    .section-title br { display: none; }
+    .hero-cta-row { flex-direction: column; align-items: stretch; gap: 0.75rem; }
+    .hero-cta-row .btn { width: 100%; text-align: center; justify-content: center; }
+    .cat-grid { grid-template-columns: 1fr !important; gap: 1rem; }
+    .prod-grid { grid-template-columns: 1fr 1fr !important; gap: 0.75rem; }
+    .hero-features { flex-direction: column; align-items: stretch; }
+    .hero-feature { padding: 0.5rem 0.75rem; }
+    .stats-card { flex-direction: column; align-items: stretch; }
+    .stat-item { justify-content: center; padding: 0.5rem 0; }
+    .panel-split { grid-template-columns: 1fr !important; }
+    .panel-visual { min-height: 200px; }
+    .form-wrap { grid-template-columns: 1fr !important; }
+    .form-grid { grid-template-columns: 1fr !important; }
+    .form-field-full { grid-column: 1 / -1; }
+    .site-nav { display: none; }
+    .header-cta { padding: 0.5rem 0.9rem; font-size: 0.85rem; }
+    .site-header .brand img { max-width: 110px; height: auto; }
+    .steps { flex-direction: column; }
+    .step-arrow { display: none; }
+    details summary { padding-right: 1.5rem; }
+    /* Cards Lojistas/Distribuidores no mobile */
+    .cat-card h3 { font-size: 1.05rem !important; }
+    .cat-card p { font-size: 0.9rem; line-height: 1.55; }
+    .cat-card ul { font-size: 0.9rem !important; padding-left: 1rem !important; }
+    .cat-card ul li { margin-bottom: 0.4rem; }
+  }
+
+  @media (max-width: 480px) {
+    .hero-title { font-size: clamp(1.5rem, 8vw, 2rem) !important; }
+    .section-title { font-size: clamp(1.3rem, 6vw, 1.7rem) !important; }
+    .prod-grid { grid-template-columns: 1fr !important; }
+  }
+</style>
+
 <!-- ============= CSS ============= -->
 <link rel="stylesheet" href="assets/css/styles.css">
 
@@ -509,13 +556,13 @@ src="https://www.facebook.com/tr?id=3300124963501472&ev=PageView&noscript=1"/></
   <!-- ============= LOJISTAS + DISTRIBUIDORES ============= -->
   <section class="section reveal" aria-label="Para lojistas e distribuidores">
     <div class="container">
-      <div class="cat-grid" style="grid-template-columns: 1fr 1fr;">
+      <div class="cat-grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
         <article class="cat-card reveal" id="lojistas" style="display:flex; flex-direction:column;">
-          <div class="cat-body">
+          <div class="cat-body" style="overflow-wrap: break-word; word-wrap: break-word;">
             <span class="cat-pin" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-6 9 6v10H3z"/><path d="M9 22V12h6v10"/></svg>
             </span>
-            <h3>PARA LOJISTAS</h3>
+            <h3 style="overflow-wrap: break-word; hyphens: auto;">PARA LOJISTAS</h3>
             <p>Amplie a variedade da sua loja e ofereça produtos para diferentes necessidades, aplicações e faixas de preço. Sua empresa pode atender desde o consumidor que cuida do próprio veículo até profissionais que usam produtos automotivos diariamente.</p>
             <ul style="margin: 1rem 0; padding-left: 1.2rem; line-height: 1.7;">
               <li>Linha com diferentes categorias de produtos</li>
@@ -529,11 +576,11 @@ src="https://www.facebook.com/tr?id=3300124963501472&ev=PageView&noscript=1"/></
           </div>
         </article>
         <article class="cat-card reveal" id="distribuidores" style="display:flex; flex-direction:column;">
-          <div class="cat-body">
+          <div class="cat-body" style="overflow-wrap: break-word; word-wrap: break-word;">
             <span class="cat-pin" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v10H3zM14 10h4l3 3v4h-7z"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>
             </span>
-            <h3>PARA DISTRIBUIDORES</h3>
+            <h3 style="overflow-wrap: break-word; hyphens: auto; font-size: clamp(1rem, 3vw, 1.25rem);">PARA<br>DISTRIBUIDORES</h3>
             <p>Inclua uma linha completa de produtos automotivos no seu portfólio e amplie as possibilidades de atendimento na sua região. Tenha produtos pra fornecer a lojas de automotivos, autopeças, estéticas, lava-rápidos, oficinas e centros automotivos.</p>
             <ul style="margin: 1rem 0; padding-left: 1.2rem; line-height: 1.7;">
               <li>Portfólio com diferentes categorias</li>
@@ -674,38 +721,38 @@ src="https://www.facebook.com/tr?id=3300124963501472&ev=PageView&noscript=1"/></
         <h2 id="h-faq" class="section-title">DÚVIDAS <span class="text-red">FREQUENTES</span></h2>
         <p class="section-sub">Tira suas principais dúvidas antes de solicitar a tabela.</p>
       </header>
-      <div style="max-width: 800px; margin: 0 auto;">
-        <details style="border-bottom: 1px solid rgba(255,255,255,0.1); padding: 1.2rem 0;">
-          <summary style="cursor: pointer; font-weight: 700; font-size: 1.05rem; padding: 0.3rem 0;">Quem pode comprar diretamente da Texas Química?</summary>
-          <p style="margin-top: 0.8rem; line-height: 1.6; opacity: 0.85;">O atendimento desta página é direcionado a lojas e distribuidoras de produtos automotivos.</p>
+      <div style="max-width: 720px; margin: 0 auto;">
+        <details style="border-bottom: 1px solid rgba(255,255,255,0.08); padding: 0.75rem 0;">
+          <summary style="cursor: pointer; font-weight: 600; font-size: 0.95rem; padding: 0.2rem 0; list-style-position: outside;">Quem pode comprar diretamente da Texas Química?</summary>
+          <p style="margin-top: 0.5rem; line-height: 1.5; opacity: 0.8; font-size: 0.9rem;">O atendimento desta página é direcionado a lojas e distribuidoras de produtos automotivos.</p>
         </details>
-        <details style="border-bottom: 1px solid rgba(255,255,255,0.1); padding: 1.2rem 0;">
-          <summary style="cursor: pointer; font-weight: 700; font-size: 1.05rem; padding: 0.3rem 0;">Existe pedido mínimo?</summary>
-          <p style="margin-top: 0.8rem; line-height: 1.6; opacity: 0.85;">Sim. Os pedidos comerciais começam a partir de <strong>R$ 5.000 em produtos</strong>.</p>
+        <details style="border-bottom: 1px solid rgba(255,255,255,0.08); padding: 0.75rem 0;">
+          <summary style="cursor: pointer; font-weight: 600; font-size: 0.95rem; padding: 0.2rem 0;">Existe pedido mínimo?</summary>
+          <p style="margin-top: 0.5rem; line-height: 1.5; opacity: 0.8; font-size: 0.9rem;">Sim. Os pedidos comerciais começam a partir de <strong>R$ 5.000 em produtos</strong>.</p>
         </details>
-        <details style="border-bottom: 1px solid rgba(255,255,255,0.1); padding: 1.2rem 0;">
-          <summary style="cursor: pointer; font-weight: 700; font-size: 1.05rem; padding: 0.3rem 0;">Posso escolher os produtos que farão parte do pedido?</summary>
-          <p style="margin-top: 0.8rem; line-height: 1.6; opacity: 0.85;">Sim. O mix pode ser montado de acordo com o perfil da sua empresa, a disponibilidade dos produtos e as condições apresentadas pelo time comercial.</p>
+        <details style="border-bottom: 1px solid rgba(255,255,255,0.08); padding: 0.75rem 0;">
+          <summary style="cursor: pointer; font-weight: 600; font-size: 0.95rem; padding: 0.2rem 0;">Posso escolher os produtos do pedido?</summary>
+          <p style="margin-top: 0.5rem; line-height: 1.5; opacity: 0.8; font-size: 0.9rem;">Sim. O mix pode ser montado conforme o perfil da sua empresa, a disponibilidade dos produtos e as condições apresentadas pelo time comercial.</p>
         </details>
-        <details style="border-bottom: 1px solid rgba(255,255,255,0.1); padding: 1.2rem 0;">
-          <summary style="cursor: pointer; font-weight: 700; font-size: 1.05rem; padding: 0.3rem 0;">Como recebo os preços?</summary>
-          <p style="margin-top: 0.8rem; line-height: 1.6; opacity: 0.85;">Após o preenchimento do formulário, nossa equipe comercial entra em contato pra apresentar a linha e as condições disponíveis pra sua empresa.</p>
+        <details style="border-bottom: 1px solid rgba(255,255,255,0.08); padding: 0.75rem 0;">
+          <summary style="cursor: pointer; font-weight: 600; font-size: 0.95rem; padding: 0.2rem 0;">Como recebo os preços?</summary>
+          <p style="margin-top: 0.5rem; line-height: 1.5; opacity: 0.8; font-size: 0.9rem;">Após preencher o formulário, nossa equipe comercial entra em contato pra apresentar a linha e as condições disponíveis pra sua empresa.</p>
         </details>
-        <details style="border-bottom: 1px solid rgba(255,255,255,0.1); padding: 1.2rem 0;">
-          <summary style="cursor: pointer; font-weight: 700; font-size: 1.05rem; padding: 0.3rem 0;">A Texas atende minha região?</summary>
-          <p style="margin-top: 0.8rem; line-height: 1.6; opacity: 0.85;">A disponibilidade de atendimento, os prazos e as condições logísticas são analisados conforme a localização da empresa.</p>
+        <details style="border-bottom: 1px solid rgba(255,255,255,0.08); padding: 0.75rem 0;">
+          <summary style="cursor: pointer; font-weight: 600; font-size: 0.95rem; padding: 0.2rem 0;">A Texas atende minha região?</summary>
+          <p style="margin-top: 0.5rem; line-height: 1.5; opacity: 0.8; font-size: 0.9rem;">Disponibilidade, prazos e condições logísticas são analisados conforme a localização da empresa.</p>
         </details>
-        <details style="border-bottom: 1px solid rgba(255,255,255,0.1); padding: 1.2rem 0;">
-          <summary style="cursor: pointer; font-weight: 700; font-size: 1.05rem; padding: 0.3rem 0;">Preciso já vender produtos automotivos?</summary>
-          <p style="margin-top: 0.8rem; line-height: 1.6; opacity: 0.85;">A página é direcionada a lojas e distribuidoras que já atuam no mercado automotivo ou estão estruturando a entrada no segmento. O time comercial avalia o perfil informado no cadastro.</p>
+        <details style="border-bottom: 1px solid rgba(255,255,255,0.08); padding: 0.75rem 0;">
+          <summary style="cursor: pointer; font-weight: 600; font-size: 0.95rem; padding: 0.2rem 0;">Preciso já vender produtos automotivos?</summary>
+          <p style="margin-top: 0.5rem; line-height: 1.5; opacity: 0.8; font-size: 0.9rem;">A página é direcionada a lojas e distribuidoras que já atuam ou estão estruturando entrada no segmento. O time comercial avalia o perfil informado.</p>
         </details>
-        <details style="border-bottom: 1px solid rgba(255,255,255,0.1); padding: 1.2rem 0;">
-          <summary style="cursor: pointer; font-weight: 700; font-size: 1.05rem; padding: 0.3rem 0;">Existe tabela de preços pra revendedores?</summary>
-          <p style="margin-top: 0.8rem; line-height: 1.6; opacity: 0.85;">Sim. As condições comerciais são apresentadas após o cadastro e podem variar conforme produtos, quantidades, região e volume do pedido.</p>
+        <details style="border-bottom: 1px solid rgba(255,255,255,0.08); padding: 0.75rem 0;">
+          <summary style="cursor: pointer; font-weight: 600; font-size: 0.95rem; padding: 0.2rem 0;">Existe tabela de preços pra revendedores?</summary>
+          <p style="margin-top: 0.5rem; line-height: 1.5; opacity: 0.8; font-size: 0.9rem;">Sim. As condições são apresentadas após o cadastro e variam conforme produtos, quantidades, região e volume do pedido.</p>
         </details>
-        <details style="border-bottom: 1px solid rgba(255,255,255,0.1); padding: 1.2rem 0;">
-          <summary style="cursor: pointer; font-weight: 700; font-size: 1.05rem; padding: 0.3rem 0;">Posso fazer novos pedidos depois da primeira compra?</summary>
-          <p style="margin-top: 0.8rem; line-height: 1.6; opacity: 0.85;">Sim. O atendimento comercial continua disponível pra reposições e ampliação do portfólio.</p>
+        <details style="border-bottom: 1px solid rgba(255,255,255,0.08); padding: 0.75rem 0;">
+          <summary style="cursor: pointer; font-weight: 600; font-size: 0.95rem; padding: 0.2rem 0;">Posso fazer novos pedidos depois da primeira compra?</summary>
+          <p style="margin-top: 0.5rem; line-height: 1.5; opacity: 0.8; font-size: 0.9rem;">Sim. O atendimento continua disponível pra reposições e ampliação do portfólio.</p>
         </details>
       </div>
     </div>
@@ -726,110 +773,148 @@ src="https://www.facebook.com/tr?id=3300124963501472&ev=PageView&noscript=1"/></
             <li><span aria-hidden="true">✓</span> Sem compromisso</li>
             <li><span aria-hidden="true">✓</span> Resposta em até 24h</li>
           </ul>
-          <div class="form-grid">
-            <label class="form-field">
-              <span class="form-label">Nome completo</span>
-              <input type="text" name="nome" placeholder="Digite seu nome" required autocomplete="name">
-            </label>
-            <label class="form-field">
-              <span class="form-label">WhatsApp</span>
-              <input type="tel" name="telefone" placeholder="Digite seu WhatsApp com DDD" required autocomplete="tel" inputmode="tel" id="input-tel">
-            </label>
-            <label class="form-field">
-              <span class="form-label">E-mail comercial</span>
-              <input type="email" name="email" placeholder="Digite seu melhor e-mail" required autocomplete="email" inputmode="email">
-            </label>
-            <label class="form-field">
-              <span class="form-label">Nome da empresa</span>
-              <input type="text" name="empresa" placeholder="Digite o nome da empresa" required autocomplete="organization">
-            </label>
-            <label class="form-field">
-              <span class="form-label">CNPJ</span>
-              <input type="text" name="cnpj" placeholder="Digite o CNPJ da empresa" required inputmode="numeric">
-            </label>
-            <label class="form-field">
-              <span class="form-label">Cidade</span>
-              <input type="text" name="cidade" placeholder="Digite sua cidade" required autocomplete="address-level2">
-            </label>
-            <label class="form-field">
-              <span class="form-label">Estado</span>
-              <select name="estado" required autocomplete="address-level1">
-                <option value="" disabled selected>Selecione</option>
-                <option>AC</option><option>AL</option><option>AP</option><option>AM</option>
-                <option>BA</option><option>CE</option><option>DF</option><option>ES</option>
-                <option>GO</option><option>MA</option><option>MT</option><option>MS</option>
-                <option>MG</option><option>PA</option><option>PB</option><option>PR</option>
-                <option>PE</option><option>PI</option><option>RJ</option><option>RN</option>
-                <option>RS</option><option>RO</option><option>RR</option><option>SC</option>
-                <option>SP</option><option>SE</option><option>TO</option>
-              </select>
-            </label>
-            <label class="form-field form-field-full">
-              <span class="form-label">Qual é o perfil da sua empresa?</span>
-              <select name="perfil_empresa" required>
-                <option value="" disabled selected>Selecione</option>
-                <option>Loja de produtos automotivos</option>
-                <option>Distribuidora de produtos automotivos</option>
-              </select>
-            </label>
-            <label class="form-field form-field-full">
-              <span class="form-label">Sua empresa já comercializa produtos automotivos?</span>
-              <select name="ja_comercializa" required>
-                <option value="" disabled selected>Selecione</option>
-                <option>Sim, já trabalhamos com uma linha completa</option>
-                <option>Sim, mas queremos ampliar nosso portfólio</option>
-                <option>Estamos iniciando no segmento</option>
-              </select>
-            </label>
-            <label class="form-field form-field-full">
-              <span class="form-label">Como sua empresa realiza as vendas?</span>
-              <select name="canal_vendas" required>
-                <option value="" disabled selected>Selecione</option>
-                <option>Loja física</option>
-                <option>Loja física e vendas online</option>
-                <option>E-commerce próprio</option>
-                <option>Vendedores externos</option>
-                <option>Distribuição para outras empresas</option>
-              </select>
-            </label>
-            <label class="form-field form-field-full">
-              <span class="form-label">Qual volume inicial de compra sua empresa pretende realizar?</span>
-              <select name="volume_compra" required>
-                <option value="" disabled selected>Selecione</option>
-                <option>De R$ 5.000 a R$ 9.999</option>
-                <option>De R$ 10.000 a R$ 19.999</option>
-                <option>De R$ 20.000 a R$ 49.999</option>
-                <option>Acima de R$ 50.000</option>
-              </select>
-            </label>
-            <label class="form-field form-field-full">
-              <span class="form-label">Em quanto tempo pretende realizar o pedido?</span>
-              <select name="prazo_pedido" required>
-                <option value="" disabled selected>Selecione</option>
-                <option>O quanto antes</option>
-                <option>Nos próximos 15 dias</option>
-                <option>Nos próximos 30 dias</option>
-                <option>Ainda estou avaliando</option>
-              </select>
-            </label>
-            <label class="form-field form-field-full">
-              <span class="form-label">Qual é o seu cargo na empresa?</span>
-              <select name="cargo" required>
-                <option value="" disabled selected>Selecione</option>
-                <option>Proprietário ou sócio</option>
-                <option>Diretor</option>
-                <option>Gerente</option>
-                <option>Responsável por compras</option>
-                <option>Responsável comercial</option>
-              </select>
-            </label>
+
+          <!-- Progress bar -->
+          <div style="margin: 1.5rem 0 1.75rem;">
+            <div style="display:flex; justify-content:space-between; margin-bottom: 0.5rem; font-size: 0.8rem; opacity: 0.75;">
+              <span id="step-label">Etapa 1 de 3 · Seus dados</span>
+              <span id="step-percent">33%</span>
+            </div>
+            <div style="width:100%; height: 6px; background: rgba(255,255,255,0.1); border-radius: 999px; overflow: hidden;">
+              <div id="step-progress" style="width: 33%; height: 100%; background: linear-gradient(90deg, #e53935, #ff6b6b); border-radius: 999px; transition: width 0.35s ease;"></div>
+            </div>
           </div>
-          <button type="submit" class="btn btn-primary btn-full form-submit">
-            <span class="form-submit-label">QUERO RECEBER A TABELA COMERCIAL <span aria-hidden="true">→</span></span>
-            <span class="form-submit-spinner" aria-hidden="true"></span>
-          </button>
-          <p style="margin-top: 1rem; font-size: 0.8rem; opacity: 0.65; line-height: 1.5;">Ao enviar seus dados, você autoriza o contato da equipe comercial da Texas Química por telefone, WhatsApp ou e-mail. Seus dados serão utilizados exclusivamente para o atendimento comercial solicitado.</p>
-          <p class="form-success" role="status" hidden>
+
+          <!-- ETAPA 1: CONTATO -->
+          <div class="form-step" data-step="1">
+            <div class="form-grid">
+              <label class="form-field form-field-full">
+                <span class="form-label">Nome completo</span>
+                <input type="text" name="nome" placeholder="Digite seu nome" required autocomplete="name">
+              </label>
+              <label class="form-field form-field-full">
+                <span class="form-label">WhatsApp</span>
+                <input type="tel" name="telefone" placeholder="(11) 99999-9999" required autocomplete="tel" inputmode="tel" id="input-tel">
+              </label>
+              <label class="form-field form-field-full">
+                <span class="form-label">E-mail comercial</span>
+                <input type="email" name="email" placeholder="voce@empresa.com" required autocomplete="email" inputmode="email">
+              </label>
+            </div>
+          </div>
+
+          <!-- ETAPA 2: EMPRESA -->
+          <div class="form-step" data-step="2" style="display:none;">
+            <div class="form-grid">
+              <label class="form-field form-field-full">
+                <span class="form-label">Nome da empresa</span>
+                <input type="text" name="empresa" placeholder="Nome da empresa" required autocomplete="organization">
+              </label>
+              <label class="form-field form-field-full">
+                <span class="form-label">CNPJ</span>
+                <input type="text" name="cnpj" placeholder="00.000.000/0000-00" required inputmode="numeric" id="input-cnpj">
+              </label>
+              <label class="form-field">
+                <span class="form-label">Cidade</span>
+                <input type="text" name="cidade" placeholder="Sua cidade" required autocomplete="address-level2">
+              </label>
+              <label class="form-field">
+                <span class="form-label">Estado</span>
+                <select name="estado" required autocomplete="address-level1">
+                  <option value="" disabled selected>UF</option>
+                  <option>AC</option><option>AL</option><option>AP</option><option>AM</option>
+                  <option>BA</option><option>CE</option><option>DF</option><option>ES</option>
+                  <option>GO</option><option>MA</option><option>MT</option><option>MS</option>
+                  <option>MG</option><option>PA</option><option>PB</option><option>PR</option>
+                  <option>PE</option><option>PI</option><option>RJ</option><option>RN</option>
+                  <option>RS</option><option>RO</option><option>RR</option><option>SC</option>
+                  <option>SP</option><option>SE</option><option>TO</option>
+                </select>
+              </label>
+              <label class="form-field form-field-full">
+                <span class="form-label">Qual é o perfil da sua empresa?</span>
+                <select name="perfil_empresa" required>
+                  <option value="" disabled selected>Selecione</option>
+                  <option>Loja de produtos automotivos</option>
+                  <option>Distribuidora de produtos automotivos</option>
+                </select>
+              </label>
+            </div>
+          </div>
+
+          <!-- ETAPA 3: QUALIFICACAO -->
+          <div class="form-step" data-step="3" style="display:none;">
+            <div class="form-grid">
+              <label class="form-field form-field-full">
+                <span class="form-label">Sua empresa já comercializa produtos automotivos?</span>
+                <select name="ja_comercializa" required>
+                  <option value="" disabled selected>Selecione</option>
+                  <option>Sim, já trabalhamos com uma linha completa</option>
+                  <option>Sim, mas queremos ampliar nosso portfólio</option>
+                  <option>Estamos iniciando no segmento</option>
+                </select>
+              </label>
+              <label class="form-field form-field-full">
+                <span class="form-label">Como sua empresa realiza as vendas?</span>
+                <select name="canal_vendas" required>
+                  <option value="" disabled selected>Selecione</option>
+                  <option>Loja física</option>
+                  <option>Loja física e vendas online</option>
+                  <option>E-commerce próprio</option>
+                  <option>Vendedores externos</option>
+                  <option>Distribuição para outras empresas</option>
+                </select>
+              </label>
+              <label class="form-field form-field-full">
+                <span class="form-label">Volume inicial de compra pretendido</span>
+                <select name="volume_compra" required>
+                  <option value="" disabled selected>Selecione</option>
+                  <option>De R$ 5.000 a R$ 9.999</option>
+                  <option>De R$ 10.000 a R$ 19.999</option>
+                  <option>De R$ 20.000 a R$ 49.999</option>
+                  <option>Acima de R$ 50.000</option>
+                </select>
+              </label>
+              <label class="form-field form-field-full">
+                <span class="form-label">Em quanto tempo pretende realizar o pedido?</span>
+                <select name="prazo_pedido" required>
+                  <option value="" disabled selected>Selecione</option>
+                  <option>O quanto antes</option>
+                  <option>Nos próximos 15 dias</option>
+                  <option>Nos próximos 30 dias</option>
+                  <option>Ainda estou avaliando</option>
+                </select>
+              </label>
+              <label class="form-field form-field-full">
+                <span class="form-label">Qual é o seu cargo na empresa?</span>
+                <select name="cargo" required>
+                  <option value="" disabled selected>Selecione</option>
+                  <option>Proprietário ou sócio</option>
+                  <option>Diretor</option>
+                  <option>Gerente</option>
+                  <option>Responsável por compras</option>
+                  <option>Responsável comercial</option>
+                </select>
+              </label>
+            </div>
+          </div>
+
+          <!-- Botoes navegacao -->
+          <div style="display:flex; gap: 0.75rem; margin-top: 1.25rem;">
+            <button type="button" id="btn-prev" class="btn btn-ghost" style="flex: 1; display: none;">
+              ← Voltar
+            </button>
+            <button type="button" id="btn-next" class="btn btn-primary" style="flex: 2;">
+              Próximo <span aria-hidden="true">→</span>
+            </button>
+            <button type="submit" id="btn-submit" class="btn btn-primary form-submit" style="flex: 2; display: none;">
+              <span class="form-submit-label">QUERO RECEBER A TABELA <span aria-hidden="true">→</span></span>
+              <span class="form-submit-spinner" aria-hidden="true"></span>
+            </button>
+          </div>
+
+          <p style="margin-top: 1rem; font-size: 0.75rem; opacity: 0.6; line-height: 1.5;">Ao enviar seus dados, você autoriza o contato da Texas Química por telefone, WhatsApp ou e-mail. Dados usados exclusivamente para atendimento comercial.</p>
+          <p class="form-success" role="status" hidden style="margin-top: 1rem;">
             <span aria-hidden="true">✓</span> Recebemos sua solicitação. Nosso time entrará em contato em até 24h.
           </p>
         </form>
@@ -953,6 +1038,76 @@ src="https://www.facebook.com/tr?id=3300124963501472&ev=PageView&noscript=1"/></
     });
   }
 
+  // Mascara CNPJ
+  const cnpj = document.getElementById('input-cnpj');
+  if (cnpj) {
+    cnpj.addEventListener('input', (e) => {
+      let v = e.target.value.replace(/\D/g, '').slice(0, 14);
+      if (v.length > 12) v = v.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{0,2}).*/, '$1.$2.$3/$4-$5');
+      else if (v.length > 8) v = v.replace(/(\d{2})(\d{3})(\d{3})(\d{0,4}).*/, '$1.$2.$3/$4');
+      else if (v.length > 5) v = v.replace(/(\d{2})(\d{3})(\d{0,3}).*/, '$1.$2.$3');
+      else if (v.length > 2) v = v.replace(/(\d{2})(\d{0,3}).*/, '$1.$2');
+      e.target.value = v;
+    });
+  }
+
+  // ============= MULTI-STEP FORM (3 etapas com progress bar) =============
+  (function multiStep() {
+    const formEl = document.getElementById('form-solicitar');
+    if (!formEl) return;
+    const steps = formEl.querySelectorAll('.form-step');
+    const btnPrev = document.getElementById('btn-prev');
+    const btnNext = document.getElementById('btn-next');
+    const btnSubmit = document.getElementById('btn-submit');
+    const progressBar = document.getElementById('step-progress');
+    const stepLabel = document.getElementById('step-label');
+    const stepPercent = document.getElementById('step-percent');
+    const labels = ['Seus dados', 'Sua empresa', 'Perfil comercial'];
+    let current = 1;
+    const total = steps.length;
+
+    function updateUI() {
+      steps.forEach(s => {
+        s.style.display = parseInt(s.dataset.step, 10) === current ? 'block' : 'none';
+      });
+      const pct = Math.round((current / total) * 100);
+      progressBar.style.width = pct + '%';
+      stepPercent.textContent = pct + '%';
+      stepLabel.textContent = 'Etapa ' + current + ' de ' + total + ' · ' + labels[current - 1];
+      btnPrev.style.display = current > 1 ? 'inline-flex' : 'none';
+      btnNext.style.display = current < total ? 'inline-flex' : 'none';
+      btnSubmit.style.display = current === total ? 'inline-flex' : 'none';
+      // Scroll suave pro topo do form
+      formEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function validateStep(n) {
+      const step = formEl.querySelector('.form-step[data-step="' + n + '"]');
+      const fields = step.querySelectorAll('input[required], select[required], textarea[required]');
+      for (let i = 0; i < fields.length; i++) {
+        if (!fields[i].checkValidity()) {
+          fields[i].focus();
+          fields[i].reportValidity();
+          track('form_step_error', { step: n, field: fields[i].name });
+          return false;
+        }
+      }
+      return true;
+    }
+
+    btnNext.addEventListener('click', () => {
+      if (!validateStep(current)) return;
+      track('form_step_next', { from: current, to: current + 1 });
+      current = Math.min(current + 1, total);
+      updateUI();
+    });
+    btnPrev.addEventListener('click', () => {
+      current = Math.max(current - 1, 1);
+      updateUI();
+    });
+    updateUI();
+  })();
+
   // Helper analytics: dispara em GA4 e Meta Pixel simultaneamente
   const track = (name, params) => {
     if (typeof gtag === 'function') gtag('event', name, params || {});
@@ -1005,19 +1160,28 @@ src="https://www.facebook.com/tr?id=3300124963501472&ev=PageView&noscript=1"/></
         currency: 'BRL'
       });
 
-      // Monta payload completo pra Apps Script (planilha + CRM)
+      // Monta payload completo pra Apps Script (planilha + CRM) — schema v2
       const payload = {
         nome: form.nome.value.trim(),
         empresa: form.empresa.value.trim(),
+        cnpj: (form.cnpj?.value || '').trim(),
         email: form.email.value.trim(),
         telefone: form.telefone.value.trim(),
         cidade: form.cidade.value.trim(),
         estado: estado,
-        mensagem: (form.mensagem.value || '').trim(),
+        // Novos campos qualificadores do form multi-step
+        perfil_empresa: (form.perfil_empresa?.value || '').trim(),
+        ja_comercializa: (form.ja_comercializa?.value || '').trim(),
+        canal_vendas: (form.canal_vendas?.value || '').trim(),
+        volume_compra: (form.volume_compra?.value || '').trim(),
+        prazo_pedido: (form.prazo_pedido?.value || '').trim(),
+        cargo: (form.cargo?.value || '').trim(),
+        // Contexto
         url: window.location.href,
         referrer: document.referrer || '',
         user_agent: navigator.userAgent,
         timestamp_iso: new Date().toISOString(),
+        form_version: 'v2',
         utm_source: getUTM('utm_source'),
         utm_medium: getUTM('utm_medium'),
         utm_campaign: getUTM('utm_campaign'),
