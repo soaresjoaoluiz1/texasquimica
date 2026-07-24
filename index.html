@@ -222,10 +222,10 @@ src="https://www.facebook.com/tr?id=3300124963501472&ev=PageView&noscript=1"/></
 
 <!-- ============= CSS OVERRIDES v2 (fix mobile) ============= -->
 <style>
-  html, body { overflow-x: hidden !important; max-width: 100vw; }
-  * { box-sizing: border-box; }
+  html, body { overflow-x: hidden !important; max-width: 100vw; hyphens: none !important; -webkit-hyphens: none !important; }
+  * { box-sizing: border-box; hyphens: none; }
   .container { max-width: 100%; padding-left: 1.25rem; padding-right: 1.25rem; }
-  .hero-title, .section-title, h1, h2, h3 { overflow-wrap: break-word; word-wrap: break-word; hyphens: auto; }
+  .hero-title, .section-title, h1, h2, h3 { overflow-wrap: normal; word-wrap: normal; hyphens: none !important; -webkit-hyphens: none !important; }
 
   @media (max-width: 768px) {
     .hero-title { font-size: clamp(1.7rem, 7vw, 2.4rem) !important; line-height: 1.15 !important; }
@@ -612,11 +612,11 @@ src="https://www.facebook.com/tr?id=3300124963501472&ev=PageView&noscript=1"/></
     <div class="container">
       <div class="cat-grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
         <article class="cat-card reveal" id="lojistas" style="display:flex; flex-direction:column;">
-          <div class="cat-body" style="overflow-wrap: break-word; word-wrap: break-word;">
+          <div class="cat-body">
             <span class="cat-pin" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-6 9 6v10H3z"/><path d="M9 22V12h6v10"/></svg>
             </span>
-            <h3 style="overflow-wrap: break-word; hyphens: auto;">PARA LOJISTAS</h3>
+            <h3>PARA LOJISTAS</h3>
             <p>Amplie a variedade da sua loja e ofereça produtos para diferentes necessidades, aplicações e faixas de preço. Sua empresa pode atender desde o consumidor que cuida do próprio veículo até profissionais que usam produtos automotivos diariamente.</p>
             <ul style="margin: 1rem 0; padding-left: 1.2rem; line-height: 1.7;">
               <li>Linha com diferentes categorias de produtos</li>
@@ -630,11 +630,11 @@ src="https://www.facebook.com/tr?id=3300124963501472&ev=PageView&noscript=1"/></
           </div>
         </article>
         <article class="cat-card reveal" id="distribuidores" style="display:flex; flex-direction:column;">
-          <div class="cat-body" style="overflow-wrap: break-word; word-wrap: break-word;">
+          <div class="cat-body">
             <span class="cat-pin" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v10H3zM14 10h4l3 3v4h-7z"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>
             </span>
-            <h3 style="overflow-wrap: break-word; hyphens: auto; font-size: clamp(1rem, 3vw, 1.25rem);">PARA<br>DISTRIBUIDORES</h3>
+            <h3 style="font-size: clamp(1rem, 3vw, 1.25rem);">PARA<br>DISTRIBUIDORES</h3>
             <p>Inclua uma linha completa de produtos automotivos no seu portfólio e amplie as possibilidades de atendimento na sua região. Tenha produtos pra fornecer a lojas de automotivos, autopeças, estéticas, lava-rápidos, oficinas e centros automotivos.</p>
             <ul style="margin: 1rem 0; padding-left: 1.2rem; line-height: 1.7;">
               <li>Portfólio com diferentes categorias</li>
