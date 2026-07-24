@@ -150,7 +150,6 @@ function ensureSheet_() {
     return sheet;
   }
 
-  // Helper: labels que precisam existir + posicao alvo NA v2 (ordem final)
   var inserts = [
     { pos:  5, label: 'CNPJ' },
     { pos: 10, label: 'Perfil Empresa' },
@@ -162,38 +161,64 @@ function ensureSheet_() {
     { pos: 29, label: 'Form Version' }
   ];
 
-  // Ja tem TODOS os labels novos? Nada a fazer.
+  // Ja tem TODOS os labels novos? Nada a fazer (idempotente).
   var currentHeaders = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0];
   var missing = inserts.filter(function(ins) {
     return currentHeaders.indexOf(ins.label) === -1;
   });
   if (missing.length === 0) return sheet;
 
-  Logger.log('[migracao] Detectado schema v1, migrando pra v2. Faltam ' + missing.length + ' colunas');
+  Logger.log('[migracao] Detectado schema v1. Faltam ' + missing.length + ' colunas');
 
-  // Insere em ORDEM REVERSA de posicao pra evitar deslocar posicoes menores
-  // (insercao em pos alta primeiro; pos baixa por ultimo)
+  // FASE 1: se ha labels que ficam DEPOIS do lastCol atual, estende de uma so vez
+  var maxTargetPos = Math.max.apply(null, missing.map(function(m) { return m.pos; }));
+  var curLastCol = sheet.getLastColumn();
+  if (maxTargetPos > curLastCol) {
+    var howMany = maxTargetPos - curLastCol;
+    Logger.log('[migracao] Estendendo ' + howMany + ' colunas no final (' + curLastCol + ' -> ' + maxTargetPos + ')');
+    sheet.insertColumnsAfter(curLastCol, howMany);
+  }
+
+  // FASE 2: agora insere labels em ORDEM REVERSA (pos alta primeiro pra nao deslocar pos baixa)
   var revMissing = missing.slice().sort(function(a, b) { return b.pos - a.pos; });
-
   revMissing.forEach(function(ins) {
-    var curLastCol = sheet.getLastColumn();
-    Logger.log('[migracao] Inserindo "' + ins.label + '" em pos ' + ins.pos + ' (lastCol atual=' + curLastCol + ')');
-
-    if (ins.pos > curLastCol) {
-      // Precisa estender a planilha ate ter (pos - 1) colunas, depois append
-      while (sheet.getLastColumn() < ins.pos - 1) {
-        sheet.insertColumnAfter(sheet.getLastColumn());
-      }
-      sheet.insertColumnAfter(sheet.getLastColumn());
+    var lastCol = sheet.getLastColumn();
+    if (ins.pos > lastCol) {
+      // Nao deveria acontecer apos FASE 1, mas fallback: setar diretamente
+      sheet.getRange(1, ins.pos).setValue(ins.label).setFontWeight('bold');
+      Logger.log('[migracao] Set direto "' + ins.label + '" na pos ' + ins.pos);
+    } else if (sheet.getRange(1, ins.pos).getValue() === '') {
+      // Coluna vazia (recem-criada pela FASE 1): so seta label sem inserir
+      sheet.getRange(1, ins.pos).setValue(ins.label).setFontWeight('bold');
+      Logger.log('[migracao] Set em coluna vazia "' + ins.label + '" na pos ' + ins.pos);
     } else {
-      // Coluna alvo existe; insere ANTES dela (desloca a atual pra frente)
+      // Coluna ocupada: insere ANTES dela (desloca atual pra frente)
       sheet.insertColumnBefore(ins.pos);
+      sheet.getRange(1, ins.pos).setValue(ins.label).setFontWeight('bold');
+      Logger.log('[migracao] Inserido antes "' + ins.label + '" na pos ' + ins.pos);
     }
-    sheet.getRange(1, ins.pos).setValue(ins.label).setFontWeight('bold');
   });
 
   Logger.log('[migracao] Concluida. Total colunas: ' + sheet.getLastColumn());
   return sheet;
+}
+
+// ============= UTILITARIO: RESETAR PLANILHA PRA v1 (emergencia) =============
+// So use se algo deu errado e quer voltar ao estado v1 (23 colunas originais)
+// ATENCAO: apaga TODAS as colunas alem da 23. Preserva as linhas.
+function resetToV1() {
+  var ss = SpreadsheetApp.getActive();
+  var sheet = ss.getSheetByName(SHEET_NAME);
+  if (!sheet) return Logger.log('Sheet nao existe');
+  var lastCol = sheet.getLastColumn();
+  if (lastCol > 23) {
+    sheet.deleteColumns(24, lastCol - 23);
+    Logger.log('Deletadas ' + (lastCol - 23) + ' colunas (>23)');
+  }
+  // Reforca headers v1 na linha 1
+  var v1Headers = ['Timestamp','Data/Hora BR','Nome','Empresa','E-mail','Telefone','Cidade','Estado','Mensagem','Fonte (normalizada)','utm_source','utm_medium','utm_campaign','utm_content','utm_term','gclid','fbclid','URL','Referrer','User Agent','IP','CRM status','CRM resposta'];
+  sheet.getRange(1, 1, 1, 23).setValues([v1Headers]).setFontWeight('bold');
+  Logger.log('Reset pra v1 concluido');
 }
 
 // ============= NORMALIZACAO DA FONTE (identico ao v1) =============
