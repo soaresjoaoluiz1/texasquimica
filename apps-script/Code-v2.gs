@@ -150,36 +150,49 @@ function ensureSheet_() {
     return sheet;
   }
 
-  // Planilha v1: migra pra v2 (adiciona colunas novas nos lugares certos)
+  // Helper: labels que precisam existir + posicao alvo NA v2 (ordem final)
+  var inserts = [
+    { pos:  5, label: 'CNPJ' },
+    { pos: 10, label: 'Perfil Empresa' },
+    { pos: 11, label: 'Ja Comercializa' },
+    { pos: 12, label: 'Canal Vendas' },
+    { pos: 13, label: 'Volume Compra' },
+    { pos: 14, label: 'Prazo Pedido' },
+    { pos: 15, label: 'Cargo' },
+    { pos: 29, label: 'Form Version' }
+  ];
+
+  // Ja tem TODOS os labels novos? Nada a fazer.
   var currentHeaders = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0];
-  var needsMigration = HEADERS.some(function(h, idx) {
-    return currentHeaders[idx] !== h;
-  }) || currentHeaders.length < HEADERS.length;
+  var missing = inserts.filter(function(ins) {
+    return currentHeaders.indexOf(ins.label) === -1;
+  });
+  if (missing.length === 0) return sheet;
 
-  if (needsMigration) {
-    Logger.log('[migracao] Detectado schema v1, migrando pra v2 (adicionando 8 colunas novas)');
-    // Insere colunas nas posicoes certas (calculado de tras pra frente)
-    // Pra evitar deslocar indices ao inserir
-    var inserts = [
-      { pos: 29, label: 'Form Version' },
-      { pos: 15, label: 'Cargo' },
-      { pos: 14, label: 'Prazo Pedido' },
-      { pos: 13, label: 'Volume Compra' },
-      { pos: 12, label: 'Canal Vendas' },
-      { pos: 11, label: 'Ja Comercializa' },
-      { pos: 10, label: 'Perfil Empresa' },
-      { pos:  5, label: 'CNPJ' }
-    ];
-    inserts.forEach(function(ins) {
-      // So insere se ainda nao existe na posicao
-      if (currentHeaders[ins.pos - 1] !== ins.label) {
-        sheet.insertColumnBefore(ins.pos);
-        sheet.getRange(1, ins.pos).setValue(ins.label).setFontWeight('bold');
+  Logger.log('[migracao] Detectado schema v1, migrando pra v2. Faltam ' + missing.length + ' colunas');
+
+  // Insere em ORDEM REVERSA de posicao pra evitar deslocar posicoes menores
+  // (insercao em pos alta primeiro; pos baixa por ultimo)
+  var revMissing = missing.slice().sort(function(a, b) { return b.pos - a.pos; });
+
+  revMissing.forEach(function(ins) {
+    var curLastCol = sheet.getLastColumn();
+    Logger.log('[migracao] Inserindo "' + ins.label + '" em pos ' + ins.pos + ' (lastCol atual=' + curLastCol + ')');
+
+    if (ins.pos > curLastCol) {
+      // Precisa estender a planilha ate ter (pos - 1) colunas, depois append
+      while (sheet.getLastColumn() < ins.pos - 1) {
+        sheet.insertColumnAfter(sheet.getLastColumn());
       }
-    });
-    Logger.log('[migracao] Concluida');
-  }
+      sheet.insertColumnAfter(sheet.getLastColumn());
+    } else {
+      // Coluna alvo existe; insere ANTES dela (desloca a atual pra frente)
+      sheet.insertColumnBefore(ins.pos);
+    }
+    sheet.getRange(1, ins.pos).setValue(ins.label).setFontWeight('bold');
+  });
 
+  Logger.log('[migracao] Concluida. Total colunas: ' + sheet.getLastColumn());
   return sheet;
 }
 
