@@ -240,8 +240,13 @@ src="https://www.facebook.com/tr?id=3300124963501472&ev=PageView&noscript=1"/></
     .prod-grid { grid-template-columns: 1fr 1fr !important; gap: 0.75rem; }
     .hero-features { flex-direction: column; align-items: stretch; }
     .hero-feature { padding: 0.5rem 0.75rem; }
-    .stats-card { flex-direction: column; align-items: stretch; }
-    .stat-item { justify-content: center; padding: 0.5rem 0; }
+    .stats-card { flex-direction: column; align-items: stretch; gap: 0; padding: 1rem 0.5rem; }
+    .stat-item { justify-content: flex-start; align-items: center; padding: 0.75rem 0.75rem; gap: 1rem; border-top: 1px solid rgba(255,255,255,0.06); text-align: left; }
+    .stat-item:first-child { border-top: 0; }
+    .stat-icon { flex-shrink: 0; width: 40px; }
+    .stat-text { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+    .stat-text strong { font-size: 1.6rem; line-height: 1; }
+    .stat-text span { font-size: 0.7rem; letter-spacing: 0.08em; opacity: 0.75; }
     .panel-split { grid-template-columns: 1fr !important; }
     .panel-visual { min-height: 200px; }
     .form-wrap { grid-template-columns: 1fr !important; }
@@ -250,8 +255,14 @@ src="https://www.facebook.com/tr?id=3300124963501472&ev=PageView&noscript=1"/></
     .site-nav { display: none; }
     .header-cta { padding: 0.5rem 0.9rem; font-size: 0.85rem; }
     .site-header .brand img { max-width: 110px; height: auto; }
-    .steps { flex-direction: column; }
+    .steps { flex-direction: column; align-items: stretch; gap: 0.75rem; padding: 0; }
+    .step { width: 100% !important; max-width: 100% !important; margin: 0 !important; box-sizing: border-box; }
     .step-arrow { display: none; }
+    /* Form fica dentro da tela */
+    .form-section { padding-left: 0.5rem; padding-right: 0.5rem; }
+    .form-card { max-width: 100%; padding: 1.25rem 1rem; box-sizing: border-box; }
+    .form-card select, .form-card input, .form-card textarea { max-width: 100%; box-sizing: border-box; }
+    #btn-prev, #btn-next, #btn-submit { min-width: 0; font-size: 0.85rem; padding: 0.75rem 0.6rem; }
     details summary { padding-right: 1.5rem; }
     /* Cards Lojistas/Distribuidores no mobile */
     .cat-card h3 { font-size: 1.05rem !important; }

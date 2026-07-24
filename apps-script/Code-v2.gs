@@ -137,6 +137,10 @@ function doGet(e) {
 }
 
 // ============= GARANTE ABA + CABECALHO (com auto-migracao v1 -> v2) =============
+// IMPORTANTE: usa ordem CRESCENTE de posicao. Isso funciona porque cada
+// insertColumnBefore em ordem crescente empurra APENAS as posicoes seguintes
+// que ainda serao processadas com as posicoes DA V2 (que ja consideram o
+// deslocamento acumulado). Ordem reversa embaralha.
 function ensureSheet_() {
   var ss = SpreadsheetApp.getActive();
   var sheet = ss.getSheetByName(SHEET_NAME);
@@ -150,6 +154,7 @@ function ensureSheet_() {
     return sheet;
   }
 
+  // Inserts em ORDEM CRESCENTE de pos (ordem v2 final)
   var inserts = [
     { pos:  5, label: 'CNPJ' },
     { pos: 10, label: 'Perfil Empresa' },
@@ -161,42 +166,32 @@ function ensureSheet_() {
     { pos: 29, label: 'Form Version' }
   ];
 
-  // Ja tem TODOS os labels novos? Nada a fazer (idempotente).
+  // Verifica se cada label ja esta na POSICAO CERTA v2
   var currentHeaders = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0];
   var missing = inserts.filter(function(ins) {
-    return currentHeaders.indexOf(ins.label) === -1;
+    return currentHeaders[ins.pos - 1] !== ins.label;
   });
   if (missing.length === 0) return sheet;
 
-  Logger.log('[migracao] Detectado schema v1. Faltam ' + missing.length + ' colunas');
+  Logger.log('[migracao] Detectado schema v1. Faltam ' + missing.length + ' colunas nas posicoes v2 corretas');
 
-  // FASE 1: se ha labels que ficam DEPOIS do lastCol atual, estende de uma so vez
-  var maxTargetPos = Math.max.apply(null, missing.map(function(m) { return m.pos; }));
-  var curLastCol = sheet.getLastColumn();
-  if (maxTargetPos > curLastCol) {
-    var howMany = maxTargetPos - curLastCol;
-    Logger.log('[migracao] Estendendo ' + howMany + ' colunas no final (' + curLastCol + ' -> ' + maxTargetPos + ')');
-    sheet.insertColumnsAfter(curLastCol, howMany);
-  }
-
-  // FASE 2: agora insere labels em ORDEM REVERSA (pos alta primeiro pra nao deslocar pos baixa)
-  var revMissing = missing.slice().sort(function(a, b) { return b.pos - a.pos; });
-  revMissing.forEach(function(ins) {
+  // Insere em ORDEM CRESCENTE (menor pos primeiro).
+  // Cada insertColumnBefore(pos) empurra os itens da pos+ pra frente, mas
+  // as proximas insercoes usam pos v2 final (que ja considera o deslocamento).
+  missing.forEach(function(ins) {
     var lastCol = sheet.getLastColumn();
     if (ins.pos > lastCol) {
-      // Nao deveria acontecer apos FASE 1, mas fallback: setar diretamente
-      sheet.getRange(1, ins.pos).setValue(ins.label).setFontWeight('bold');
-      Logger.log('[migracao] Set direto "' + ins.label + '" na pos ' + ins.pos);
-    } else if (sheet.getRange(1, ins.pos).getValue() === '') {
-      // Coluna vazia (recem-criada pela FASE 1): so seta label sem inserir
-      sheet.getRange(1, ins.pos).setValue(ins.label).setFontWeight('bold');
-      Logger.log('[migracao] Set em coluna vazia "' + ins.label + '" na pos ' + ins.pos);
+      // pos > lastCol: estende ate ter (pos - 1) col, depois append
+      if (lastCol < ins.pos - 1) {
+        sheet.insertColumnsAfter(lastCol, ins.pos - 1 - lastCol);
+      }
+      sheet.insertColumnAfter(sheet.getLastColumn());
     } else {
-      // Coluna ocupada: insere ANTES dela (desloca atual pra frente)
+      // Insere ANTES da pos alvo (empurra atual pra pos+1)
       sheet.insertColumnBefore(ins.pos);
-      sheet.getRange(1, ins.pos).setValue(ins.label).setFontWeight('bold');
-      Logger.log('[migracao] Inserido antes "' + ins.label + '" na pos ' + ins.pos);
     }
+    sheet.getRange(1, ins.pos).setValue(ins.label).setFontWeight('bold');
+    Logger.log('[migracao] Inserido "' + ins.label + '" na pos ' + ins.pos);
   });
 
   Logger.log('[migracao] Concluida. Total colunas: ' + sheet.getLastColumn());
@@ -206,6 +201,8 @@ function ensureSheet_() {
 // ============= UTILITARIO: RESETAR PLANILHA PRA v1 (emergencia) =============
 // So use se algo deu errado e quer voltar ao estado v1 (23 colunas originais)
 // ATENCAO: apaga TODAS as colunas alem da 23. Preserva as linhas.
+// Se dados de leads antigos estao desalinhados por migracao ruim, prefira
+// restaurar VERSAO ANTIGA do Google Sheets: Arquivo > Historico de versoes
 function resetToV1() {
   var ss = SpreadsheetApp.getActive();
   var sheet = ss.getSheetByName(SHEET_NAME);
@@ -215,7 +212,6 @@ function resetToV1() {
     sheet.deleteColumns(24, lastCol - 23);
     Logger.log('Deletadas ' + (lastCol - 23) + ' colunas (>23)');
   }
-  // Reforca headers v1 na linha 1
   var v1Headers = ['Timestamp','Data/Hora BR','Nome','Empresa','E-mail','Telefone','Cidade','Estado','Mensagem','Fonte (normalizada)','utm_source','utm_medium','utm_campaign','utm_content','utm_term','gclid','fbclid','URL','Referrer','User Agent','IP','CRM status','CRM resposta'];
   sheet.getRange(1, 1, 1, 23).setValues([v1Headers]).setFontWeight('bold');
   Logger.log('Reset pra v1 concluido');
