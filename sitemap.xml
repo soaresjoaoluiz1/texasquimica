@@ -3,12 +3,49 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://revendedor.texasquimica.com.br/</loc>
-    <lastmod>2026-07-08</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-07-24</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://revendedor.texasquimica.com.br/assets/img/logo-texas-quimica.png</image:loc>
-      <image:title>Texas Química</image:title>
+      <image:loc>https://revendedor.texasquimica.com.br/assets/img/og-banner.jpg</image:loc>
+      <image:title>Texas Química — Produtos automotivos para revenda</image:title>
+      <image:caption>Landing page para lojistas e distribuidores de produtos automotivos Texas Química</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://revendedor.texasquimica.com.br/assets/img/texas-quimica-banner-desktop1.webp</image:loc>
+      <image:title>Linha automotiva Texas Química</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://revendedor.texasquimica.com.br/assets/img/max-detergente.webp</image:loc>
+      <image:title>MAX Detergente Texas Química</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://revendedor.texasquimica.com.br/assets/img/dx-solupan.webp</image:loc>
+      <image:title>DX2 Desengraxante alcalino Texas Química</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://revendedor.texasquimica.com.br/assets/img/ativado.webp</image:loc>
+      <image:title>Ativado 30 desincrustante Texas Química</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://revendedor.texasquimica.com.br/assets/img/mult-super.webp</image:loc>
+      <image:title>MULT SUPER detergente multiuso Texas Química</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://revendedor.texasquimica.com.br/assets/img/auto-brilho.webp</image:loc>
+      <image:title>Autobrilho detergente Texas Química</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://revendedor.texasquimica.com.br/assets/img/limpa-pneu.webp</image:loc>
+      <image:title>Limpa Pneu Gel Texas Química</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://revendedor.texasquimica.com.br/assets/img/cremol.webp</image:loc>
+      <image:title>Cremol 5 detergente neutro Texas Química</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://revendedor.texasquimica.com.br/assets/img/solv.webp</image:loc>
+      <image:title>SOLV desengraxante sintético Texas Química</image:title>
     </image:image>
   </url>
 </urlset>

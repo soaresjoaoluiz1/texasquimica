@@ -166,53 +166,6 @@ src="https://www.facebook.com/tr?id=3300124963501472&ev=PageView&noscript=1"/></
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-<!-- ============= CSS OVERRIDES v2 (fix mobile) ============= -->
-<style>
-  html, body { overflow-x: hidden !important; max-width: 100vw; }
-  * { box-sizing: border-box; }
-  .container { max-width: 100%; padding-left: 1.25rem; padding-right: 1.25rem; }
-  .hero-title, .section-title, h1, h2, h3 { overflow-wrap: break-word; word-wrap: break-word; hyphens: auto; }
-
-  @media (max-width: 768px) {
-    .hero-title { font-size: clamp(1.7rem, 7vw, 2.4rem) !important; line-height: 1.15 !important; }
-    .hero-title br { display: none; }
-    .hero-title .text-red { display: inline; }
-    .hero-lead { font-size: 0.95rem; line-height: 1.55; }
-    .section-title { font-size: clamp(1.5rem, 5.5vw, 2rem) !important; line-height: 1.2 !important; }
-    .section-title br { display: none; }
-    .hero-cta-row { flex-direction: column; align-items: stretch; gap: 0.75rem; }
-    .hero-cta-row .btn { width: 100%; text-align: center; justify-content: center; }
-    .cat-grid { grid-template-columns: 1fr !important; gap: 1rem; }
-    .prod-grid { grid-template-columns: 1fr 1fr !important; gap: 0.75rem; }
-    .hero-features { flex-direction: column; align-items: stretch; }
-    .hero-feature { padding: 0.5rem 0.75rem; }
-    .stats-card { flex-direction: column; align-items: stretch; }
-    .stat-item { justify-content: center; padding: 0.5rem 0; }
-    .panel-split { grid-template-columns: 1fr !important; }
-    .panel-visual { min-height: 200px; }
-    .form-wrap { grid-template-columns: 1fr !important; }
-    .form-grid { grid-template-columns: 1fr !important; }
-    .form-field-full { grid-column: 1 / -1; }
-    .site-nav { display: none; }
-    .header-cta { padding: 0.5rem 0.9rem; font-size: 0.85rem; }
-    .site-header .brand img { max-width: 110px; height: auto; }
-    .steps { flex-direction: column; }
-    .step-arrow { display: none; }
-    details summary { padding-right: 1.5rem; }
-    /* Cards Lojistas/Distribuidores no mobile */
-    .cat-card h3 { font-size: 1.05rem !important; }
-    .cat-card p { font-size: 0.9rem; line-height: 1.55; }
-    .cat-card ul { font-size: 0.9rem !important; padding-left: 1rem !important; }
-    .cat-card ul li { margin-bottom: 0.4rem; }
-  }
-
-  @media (max-width: 480px) {
-    .hero-title { font-size: clamp(1.5rem, 8vw, 2rem) !important; }
-    .section-title { font-size: clamp(1.3rem, 6vw, 1.7rem) !important; }
-    .prod-grid { grid-template-columns: 1fr !important; }
-  }
-</style>
-
 <!-- ============= CSS ============= -->
 <link rel="stylesheet" href="assets/css/styles.css">
 
@@ -242,15 +195,15 @@ src="https://www.facebook.com/tr?id=3300124963501472&ev=PageView&noscript=1"/></
     <!-- Menu desktop -->
     <nav class="site-nav" aria-label="Menu principal">
       <a href="#produtos">Produtos</a>
-      <a href="#lojistas">Para Lojistas</a>
-      <a href="#distribuidores">Para Distribuidores</a>
       <a href="#vantagens">Vantagens</a>
-      <a href="#sobre">Sobre a Texas</a>
+      <a href="#revendedores">Para Revendedores</a>
+      <a href="#suporte">Suporte</a>
+      <a href="#sobre">Sobre Nós</a>
     </nav>
 
     <!-- CTA -->
     <a href="#solicitar" class="btn btn-primary header-cta">
-      Receber Tabela Comercial
+      Solicitar Condição
     </a>
 
   </div>
@@ -265,23 +218,23 @@ src="https://www.facebook.com/tr?id=3300124963501472&ev=PageView&noscript=1"/></
       <div class="hero-copy">
         <p class="hero-eyebrow">LINHA AUTOMOTIVA TEXAS</p>
         <h1 id="h-hero" class="hero-title">
-          PRODUTOS AUTOMOTIVOS<br>
-          PARA SUA EMPRESA<br>
-          <span class="text-red">VENDER MAIS</span>
+          REVENDA PRODUTOS<br>
+          AUTOMOTIVOS DE<br>
+          <span class="text-red">ALTA QUALIDADE</span><br>
+          COM MARGEM<br>
+          COMPETITIVA
         </h1>
         <p class="hero-lead">
-          Amplie seu portfólio com uma linha completa para limpeza, conservação e estética automotiva. Compre diretamente da indústria e tenha acesso a produtos para diferentes perfis de clientes, condições comerciais para revenda e atendimento especializado para sua loja ou distribuidora.
+          Produtos de alta performance, compra direta da<br>
+          indústria e suporte completo para sua revenda crescer.
         </p>
         <div class="hero-cta-row">
           <a href="#solicitar" class="btn btn-primary btn-lg">
-            RECEBER TABELA COMERCIAL <span aria-hidden="true">→</span>
-          </a>
-          <a href="#produtos" class="btn btn-ghost btn-lg">
-            CONHECER OS PRODUTOS
+            SOLICITAR CONDIÇÃO COMERCIAL <span aria-hidden="true">→</span>
           </a>
         </div>
         <p class="hero-trust">
-          <span aria-hidden="true">✓</span> Atendimento comercial direcionado a lojas e distribuidoras de produtos automotivos.
+          <span aria-hidden="true">✓</span> Sem custo. Sem compromisso. Resposta em até 24h.
         </p>
       </div>
 
@@ -299,8 +252,8 @@ src="https://www.facebook.com/tr?id=3300124963501472&ev=PageView&noscript=1"/></
             </svg>
           </span>
           <div class="hero-feature-text">
-            <strong>PORTFÓLIO COMPLETO</strong>
-            <span>Limpeza, conservação e acabamento</span>
+            <strong>ALTA PERFORMANCE</strong>
+            <span>Resultados superiores</span>
           </div>
         </li>
         <li class="hero-feature">
@@ -310,8 +263,8 @@ src="https://www.facebook.com/tr?id=3300124963501472&ev=PageView&noscript=1"/></
             </svg>
           </span>
           <div class="hero-feature-text">
-            <strong>POTENCIAL DE RECOMPRA</strong>
-            <span>Itens de uso recorrente</span>
+            <strong>PRODUTOS DE GIRO</strong>
+            <span>Alta saída e aceitação</span>
           </div>
         </li>
         <li class="hero-feature">
@@ -321,19 +274,8 @@ src="https://www.facebook.com/tr?id=3300124963501472&ev=PageView&noscript=1"/></
             </svg>
           </span>
           <div class="hero-feature-text">
-            <strong>COMPRA DIRETA DA INDÚSTRIA</strong>
-            <span>Condições para revenda e distribuição</span>
-          </div>
-        </li>
-        <li class="hero-feature">
-          <span class="hero-feature-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5l-8-3z"/>
-            </svg>
-          </span>
-          <div class="hero-feature-text">
-            <strong>SUPORTE COMERCIAL</strong>
-            <span>Orientação pra montar o mix ideal</span>
+            <strong>MARGEM COMPETITIVA</strong>
+            <span>Mais lucro para sua loja</span>
           </div>
         </li>
       </ul>
@@ -388,8 +330,8 @@ src="https://www.facebook.com/tr?id=3300124963501472&ev=PageView&noscript=1"/></
   <section class="section categorias reveal" id="produtos" aria-labelledby="h-categorias">
     <div class="container">
       <header class="section-head">
-        <h2 id="h-categorias" class="section-title">CATEGORIAS <span class="text-red">PARA COMPLETAR SEU PORTFÓLIO</span></h2>
-        <p class="section-sub">Atenda diferentes necessidades do mercado automotivo e aumente as possibilidades de venda da sua loja ou distribuidora.</p>
+        <h2 id="h-categorias" class="section-title">CATEGORIAS <span class="text-red">EM DESTAQUE</span></h2>
+        <p class="section-sub">Soluções completas para todas as etapas da limpeza e cuidado automotivo.</p>
       </header>
 
       <div class="cat-grid">
@@ -400,7 +342,7 @@ src="https://www.facebook.com/tr?id=3300124963501472&ev=PageView&noscript=1"/></
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-6 7-12a7 7 0 0 0-14 0c0 6 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
             </span>
             <h3>LIMPEZA PESADA</h3>
-            <p>Desengraxantes, desincrustantes e produtos para sujeiras difíceis e aplicações profissionais.</p>
+            <p>Desengraxantes e limpeza de alto poder.</p>
           </div>
         </article>
         <article class="cat-card reveal">
@@ -410,7 +352,7 @@ src="https://www.facebook.com/tr?id=3300124963501472&ev=PageView&noscript=1"/></
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-6 7-12a7 7 0 0 0-14 0c0 6 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
             </span>
             <h3>LIMPEZA EXTERNA</h3>
-            <p>Shampoos, detergentes e soluções para lavagem, manutenção e conservação externa.</p>
+            <p>Shampoos, detergentes e produtos concentrados.</p>
           </div>
         </article>
         <article class="cat-card reveal">
@@ -420,7 +362,7 @@ src="https://www.facebook.com/tr?id=3300124963501472&ev=PageView&noscript=1"/></
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-6 7-12a7 7 0 0 0-14 0c0 6 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
             </span>
             <h3>LIMPEZA INTERNA</h3>
-            <p>Produtos para bancos, carpetes, tecidos, painéis, plásticos e outras superfícies internas.</p>
+            <p>Higienizadores, protetores e revitalizadores.</p>
           </div>
         </article>
         <article class="cat-card reveal">
@@ -430,7 +372,7 @@ src="https://www.facebook.com/tr?id=3300124963501472&ev=PageView&noscript=1"/></
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-6 7-12a7 7 0 0 0-14 0c0 6 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
             </span>
             <h3>ACABAMENTO</h3>
-            <p>Soluções para pneus, pintura, plásticos, proteção, brilho e acabamento final.</p>
+            <p>Pneus, plásticos e acabamentos.</p>
           </div>
         </article>
         <article class="cat-card reveal">
@@ -440,7 +382,7 @@ src="https://www.facebook.com/tr?id=3300124963501472&ev=PageView&noscript=1"/></
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-6 7-12a7 7 0 0 0-14 0c0 6 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
             </span>
             <h3>FLUÍDOS E ESPECIAIS</h3>
-            <p>Produtos técnicos desenvolvidos para diferentes necessidades e aplicações automotivas.</p>
+            <p>Produtos técnicos para diversas aplicações.</p>
           </div>
         </article>
       </div>
@@ -452,147 +394,103 @@ src="https://www.facebook.com/tr?id=3300124963501472&ev=PageView&noscript=1"/></
     <div class="container">
       <header class="section-head section-head-row">
         <div>
-          <h2 id="h-produtos-destaque" class="section-title">PRODUTOS PARA O <span class="text-red">CUIDADO DIÁRIO</span> E USO PROFISSIONAL</h2>
-          <p class="section-sub">Monte um mix de acordo com o perfil dos seus clientes, a demanda da sua região e a forma de atuação da sua empresa.</p>
+          <h2 id="h-produtos-destaque" class="section-title">PRODUTOS <span class="text-red">DESTAQUE</span></h2>
+          <p class="section-sub">Os campeões de venda da Linha Automotiva Texas.</p>
         </div>
-        <a href="#solicitar" class="link-all">CONHECER TODOS OS PRODUTOS <span aria-hidden="true">→</span></a>
+        <a href="#solicitar" class="link-all">VER TODOS OS PRODUTOS <span aria-hidden="true">→</span></a>
       </header>
 
       <div class="prod-grid">
         <article class="prod-card reveal">
           <img class="prod-img" src="assets/img/max-detergente.webp" alt="MAX Detergente limpeza automotiva Texas Química" loading="lazy" decoding="async" width="600" height="600">
           <h3>MAX DETERGENTE</h3>
-          <p>Limpeza automotiva com formação de espuma pra aplicação durante a lavagem. <strong>Indicado para:</strong> consumidores, lava-rápidos e estéticas automotivas.</p>
-          <a href="#solicitar" class="btn btn-primary btn-full">VER DETALHES COMERCIAIS</a>
+          <p>Limpeza automotiva com alto poder de espuma e brilho.</p>
+          <a href="#solicitar" class="btn btn-primary btn-full">SAIBA MAIS</a>
         </article>
         <article class="prod-card reveal">
           <img class="prod-img" src="assets/img/dx-solupan.webp" alt="DX2 Desengraxante alcalino profissional Texas Química" loading="lazy" decoding="async" width="600" height="600">
           <h3>DX2</h3>
-          <p>Desengraxante alcalino concentrado pra limpeza pesada e remoção de diferentes tipos de sujeira. <strong>Indicado para:</strong> oficinas, lava-rápidos, centros automotivos e profissionais do setor.</p>
-          <a href="#solicitar" class="btn btn-primary btn-full">VER DETALHES COMERCIAIS</a>
+          <p>Desengraxante alcalino profissional, alta concentração 2:200.</p>
+          <a href="#solicitar" class="btn btn-primary btn-full">SAIBA MAIS</a>
         </article>
         <article class="prod-card reveal">
           <img class="prod-img" src="assets/img/ativado.webp" alt="Ativado 30 desincrustante ácido Texas Química" loading="lazy" decoding="async" width="600" height="600">
           <h3>ATIVADO 30</h3>
-          <p>Desincrustante ácido desenvolvido para aplicações profissionais de limpeza pesada. <strong>Indicado para:</strong> empresas especializadas e operações que trabalham com limpeza automotiva profissional.</p>
-          <a href="#solicitar" class="btn btn-primary btn-full">VER DETALHES COMERCIAIS</a>
+          <p>Desincrustante ácido de alta performance para limpeza pesada.</p>
+          <a href="#solicitar" class="btn btn-primary btn-full">SAIBA MAIS</a>
         </article>
         <article class="prod-card reveal">
           <img class="prod-img" src="assets/img/mult-super.webp" alt="Mult Super detergente multiuso Texas Química" loading="lazy" decoding="async" width="600" height="600">
           <h3>MULT SUPER</h3>
-          <p>Detergente multiuso concentrado para diferentes processos de limpeza. <strong>Indicado para:</strong> clientes que procuram praticidade e variedade de aplicações.</p>
-          <a href="#solicitar" class="btn btn-primary btn-full">VER DETALHES COMERCIAIS</a>
+          <p>Detergente multiuso concentrado com alto poder de limpeza.</p>
+          <a href="#solicitar" class="btn btn-primary btn-full">SAIBA MAIS</a>
         </article>
         <article class="prod-card reveal">
           <img class="prod-img" src="assets/img/auto-brilho.webp" alt="Detergente Autobrilho profissional Texas Química" loading="lazy" decoding="async" width="600" height="600">
           <h3>AUTOBRILHO</h3>
-          <p>Detergente que remove sujeira e realça o brilho da pintura. <strong>Indicado para:</strong> estéticas automotivas, lava-rápidos e consumidores exigentes.</p>
-          <a href="#solicitar" class="btn btn-primary btn-full">VER DETALHES COMERCIAIS</a>
+          <p>Detergente que remove sujeira e dá brilho intenso à pintura.</p>
+          <a href="#solicitar" class="btn btn-primary btn-full">SAIBA MAIS</a>
         </article>
         <article class="prod-card reveal">
           <img class="prod-img" src="assets/img/limpa-pneu.webp" alt="Texas Limpa Pneu Gel Texas Química" loading="lazy" decoding="async" width="600" height="600">
           <h3>LIMPA PNEU GEL</h3>
-          <p>Gel desenvolvido para proteção, brilho e acabamento dos pneus. <strong>Diferencial comercial:</strong> resultado visual fácil de apresentar ao cliente.</p>
-          <a href="#solicitar" class="btn btn-primary btn-full">VER DETALHES COMERCIAIS</a>
+          <p>Gel de proteção e brilho duradouro para todos os tipos de pneus.</p>
+          <a href="#solicitar" class="btn btn-primary btn-full">SAIBA MAIS</a>
         </article>
         <article class="prod-card reveal">
           <img class="prod-img" src="assets/img/cremol.webp" alt="Cremol 5 detergente neutro Texas Química" loading="lazy" decoding="async" width="600" height="600">
           <h3>CREMOL 5</h3>
-          <p>Detergente neutro perfumado, limpeza eficiente e econômica. <strong>Indicado para:</strong> lavagens frequentes, mix de entrada e clientes que buscam custo-benefício.</p>
-          <a href="#solicitar" class="btn btn-primary btn-full">VER DETALHES COMERCIAIS</a>
+          <p>Detergente neutro perfumado, limpa eficiente e econômico.</p>
+          <a href="#solicitar" class="btn btn-primary btn-full">SAIBA MAIS</a>
         </article>
         <article class="prod-card reveal">
           <img class="prod-img" src="assets/img/solv.webp" alt="SOLV desengraxante sintético Texas Química" loading="lazy" decoding="async" width="600" height="600">
           <h3>SOLV</h3>
-          <p>Desengraxante sintético profissional para diferentes processos de limpeza. <strong>Indicado para:</strong> oficinas, empresas automotivas e aplicações técnicas.</p>
-          <a href="#solicitar" class="btn btn-primary btn-full">VER DETALHES COMERCIAIS</a>
+          <p>Desengraxante sintético profissional para limpeza técnica.</p>
+          <a href="#solicitar" class="btn btn-primary btn-full">SAIBA MAIS</a>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- ============= PARA QUEM É A LINHA TEXAS ============= -->
+  <!-- ============= REGIÃO ============= -->
   <section class="section section-bg-regiao reveal" id="revendedores" aria-labelledby="h-regiao">
     <div class="container">
       <div class="panel-split panel-flat">
         <div class="panel-copy">
-          <h2 id="h-regiao" class="section-title">UMA LINHA PENSADA PARA QUEM <br>VIVE DO <span class="text-red">MERCADO AUTOMOTIVO</span></h2>
-          <p class="section-sub">Quem tem loja ou trabalha com distribuição não precisa só colocar mais produtos na prateleira. Precisa de uma linha com diferentes aplicações, opções pra diferentes perfis de clientes e suporte pra montar um portfólio adequado à sua operação.</p>
+          <h2 id="h-regiao" class="section-title">A TEXAS AJUDA SUA REGIÃO <br>A <span class="text-red">SABER ONDE COMPRAR</span></h2>
+          <p class="section-sub">Apoiamos sua revenda com ações de marketing que geram demanda e aumentam suas vendas.</p>
           <ul class="mini-features" role="list">
             <li>
               <span class="mini-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-6 9 6v10H3z"/><path d="M9 22V12h6v10"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18M8 4v5"/></svg>
               </span>
               <div>
-                <strong>CONSUMIDOR FINAL</strong>
-                <span>Quem cuida do próprio veículo.</span>
+                <strong>MATERIAIS DE DIVULGAÇÃO</strong>
+                <span>Artes, vídeos e catálogos prontos para usar.</span>
               </div>
             </li>
             <li>
               <span class="mini-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12l3-6h12l3 6M3 12v6h18v-6M3 12h18"/><circle cx="7" cy="18" r="1.5"/><circle cx="17" cy="18" r="1.5"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 15-7v18l-15-7v-4z"/><path d="M12 16v3a2 2 0 0 1-4 0v-2"/></svg>
               </span>
               <div>
-                <strong>ESTÉTICAS E LAVA-RÁPIDOS</strong>
-                <span>Profissionais do dia a dia.</span>
+                <strong>CAMPANHAS PARA SUA REGIÃO</strong>
+                <span>Ações digitais e offline com foco em resultados.</span>
               </div>
             </li>
             <li>
               <span class="mini-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6M8 6l4-4 4 4M4 12h16v9H4zM8 21v-5h8v5"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h12l4 4v12H4z"/><path d="M16 4v4h4M8 13h8M8 17h5"/></svg>
               </span>
               <div>
-                <strong>OFICINAS E CENTROS AUTOMOTIVOS</strong>
-                <span>Uso técnico e recorrente.</span>
+                <strong>SUPORTE COMERCIAL</strong>
+                <span>Time dedicado para impulsionar seu negócio.</span>
               </div>
             </li>
           </ul>
         </div>
         <div class="panel-visual panel-visual-regiao" role="img" aria-label="Mapa do Brasil com pontos de venda Texas Química"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============= LOJISTAS + DISTRIBUIDORES ============= -->
-  <section class="section reveal" aria-label="Para lojistas e distribuidores">
-    <div class="container">
-      <div class="cat-grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
-        <article class="cat-card reveal" id="lojistas" style="display:flex; flex-direction:column;">
-          <div class="cat-body" style="overflow-wrap: break-word; word-wrap: break-word;">
-            <span class="cat-pin" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-6 9 6v10H3z"/><path d="M9 22V12h6v10"/></svg>
-            </span>
-            <h3 style="overflow-wrap: break-word; hyphens: auto;">PARA LOJISTAS</h3>
-            <p>Amplie a variedade da sua loja e ofereça produtos para diferentes necessidades, aplicações e faixas de preço. Sua empresa pode atender desde o consumidor que cuida do próprio veículo até profissionais que usam produtos automotivos diariamente.</p>
-            <ul style="margin: 1rem 0; padding-left: 1.2rem; line-height: 1.7;">
-              <li>Linha com diferentes categorias de produtos</li>
-              <li>Opções para consumidores e profissionais</li>
-              <li>Diferentes aplicações e apresentações</li>
-              <li>Orientação para montar o primeiro pedido</li>
-              <li>Suporte para conhecer os diferenciais</li>
-              <li>Possibilidade de ampliar seu mix conforme a demanda</li>
-            </ul>
-            <a href="#solicitar" class="btn btn-primary btn-full" style="margin-top:auto;">QUERO REVENDER TEXAS</a>
-          </div>
-        </article>
-        <article class="cat-card reveal" id="distribuidores" style="display:flex; flex-direction:column;">
-          <div class="cat-body" style="overflow-wrap: break-word; word-wrap: break-word;">
-            <span class="cat-pin" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v10H3zM14 10h4l3 3v4h-7z"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>
-            </span>
-            <h3 style="overflow-wrap: break-word; hyphens: auto; font-size: clamp(1rem, 3vw, 1.25rem);">PARA<br>DISTRIBUIDORES</h3>
-            <p>Inclua uma linha completa de produtos automotivos no seu portfólio e amplie as possibilidades de atendimento na sua região. Tenha produtos pra fornecer a lojas de automotivos, autopeças, estéticas, lava-rápidos, oficinas e centros automotivos.</p>
-            <ul style="margin: 1rem 0; padding-left: 1.2rem; line-height: 1.7;">
-              <li>Portfólio com diferentes categorias</li>
-              <li>Condições comerciais conforme o volume de compra</li>
-              <li>Atendimento para planejamento de pedidos</li>
-              <li>Produtos para diferentes perfis de clientes</li>
-              <li>Suporte comercial para sua operação</li>
-              <li>Possibilidade de desenvolver novos mercados</li>
-            </ul>
-            <a href="#solicitar" class="btn btn-primary btn-full" style="margin-top:auto;">QUERO DISTRIBUIR TEXAS</a>
-          </div>
-        </article>
       </div>
     </div>
   </section>
@@ -603,8 +501,8 @@ src="https://www.facebook.com/tr?id=3300124963501472&ev=PageView&noscript=1"/></
       <div class="panel panel-split panel-split-reverse panel-bg-industria">
         <div class="panel-visual panel-visual-industria" role="img" aria-label="Fábrica Texas Química"></div>
         <div class="panel-copy">
-          <h2 id="h-industria" class="section-title">COMPRE DIRETO DA <span class="text-red">INDÚSTRIA</span> E FORTALEÇA SEU PORTFÓLIO</h2>
-          <p class="section-sub">Tenha acesso a uma linha própria de produtos automotivos, atendimento especializado e condições comerciais para sua loja ou distribuidora.</p>
+          <h2 id="h-industria" class="section-title">COMPRA <span class="text-red">DIRETO DA INDÚSTRIA</span></h2>
+          <p class="section-sub">Qualidade garantida, preço competitivo e segurança para o seu negócio.</p>
           <ul class="mini-features mini-features-row" role="list">
             <li>
               <span class="mini-icon" aria-hidden="true">
@@ -612,7 +510,7 @@ src="https://www.facebook.com/tr?id=3300124963501472&ev=PageView&noscript=1"/></
               </span>
               <div>
                 <strong>PRODUÇÃO PRÓPRIA</strong>
-                <span>Controle do desenvolvimento e formulação.</span>
+                <span>Controle rigoroso de qualidade.</span>
               </div>
             </li>
             <li>
@@ -620,8 +518,8 @@ src="https://www.facebook.com/tr?id=3300124963501472&ev=PageView&noscript=1"/></
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v10H3zM14 10h4l3 3v4h-7z"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>
               </span>
               <div>
-                <strong>PORTFÓLIO AMPLO</strong>
-                <span>Categorias pra mais necessidades.</span>
+                <strong>LOGÍSTICA EFICIENTE</strong>
+                <span>Entregas rápidas para todo o Brasil.</span>
               </div>
             </li>
             <li>
@@ -629,8 +527,8 @@ src="https://www.facebook.com/tr?id=3300124963501472&ev=PageView&noscript=1"/></
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v6c0 5 4 8 8 8s8-3 8-8z"/><path d="M9 12l2 2 4-4"/></svg>
               </span>
               <div>
-                <strong>ATENDIMENTO ESPECIALIZADO</strong>
-                <span>Time preparado pra sua operação.</span>
+                <strong>PREÇO JUSTO</strong>
+                <span>Melhores condições de mercado.</span>
               </div>
             </li>
           </ul>
@@ -643,8 +541,8 @@ src="https://www.facebook.com/tr?id=3300124963501472&ev=PageView&noscript=1"/></
   <section class="section como reveal" id="suporte" aria-labelledby="h-como">
     <div class="container">
       <header class="section-head">
-        <h2 id="h-como" class="section-title">COMECE A REVENDER TEXAS EM <span class="text-red">CINCO ETAPAS</span></h2>
-        <p class="section-sub">Processo simples, direto e feito pra sua empresa começar bem.</p>
+        <h2 id="h-como" class="section-title">COMO <span class="text-red">FUNCIONA</span></h2>
+        <p class="section-sub">É simples, rápido e seguro.</p>
       </header>
 
       <ol class="steps" role="list">
@@ -655,8 +553,8 @@ src="https://www.facebook.com/tr?id=3300124963501472&ev=PageView&noscript=1"/></
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M9 14h6M9 18h4"/></svg>
             </span>
           </div>
-          <h3>PREENCHA<br>SEU CADASTRO</h3>
-          <p>Informe os dados da sua empresa, região, perfil de atuação e intenção de compra.</p>
+          <h3>SOLICITE SUA<br>CONDIÇÃO COMERCIAL</h3>
+          <p>Preencha o formulário abaixo.</p>
         </li>
         <li class="step-arrow" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
@@ -668,8 +566,8 @@ src="https://www.facebook.com/tr?id=3300124963501472&ev=PageView&noscript=1"/></
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l4-4 3 3 5-5 4 4v6L12 22 4 18v-6z"/></svg>
             </span>
           </div>
-          <h3>FALE COM<br>NOSSO COMERCIAL</h3>
-          <p>Nossa equipe entra em contato pra conhecer sua operação e entender suas necessidades.</p>
+          <h3>NOSSOS ESPECIALISTAS<br>ENTRAM EM CONTATO</h3>
+          <p>Vamos entender sua região e necessidade.</p>
         </li>
         <li class="step-arrow" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
@@ -681,8 +579,8 @@ src="https://www.facebook.com/tr?id=3300124963501472&ev=PageView&noscript=1"/></
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8v8l9 5 9-5V8z"/><path d="M3 8l9 5 9-5"/></svg>
             </span>
           </div>
-          <h3>CONHEÇA<br>A LINHA</h3>
-          <p>Receba informações sobre os produtos, categorias, aplicações e condições comerciais.</p>
+          <h3>APROVAÇÃO<br>E CADASTRO</h3>
+          <p>Processo rápido e documentação simples.</p>
         </li>
         <li class="step-arrow" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
@@ -694,8 +592,8 @@ src="https://www.facebook.com/tr?id=3300124963501472&ev=PageView&noscript=1"/></
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v10H3zM14 10h4l3 3v4h-7z"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>
             </span>
           </div>
-          <h3>MONTE<br>SEU PEDIDO</h3>
-          <p>Escolha um mix compatível com o público atendido pela sua empresa.</p>
+          <h3>RECEBA SEU PEDIDO</h3>
+          <p>Produtos de alta qualidade com entrega garantida.</p>
         </li>
         <li class="step-arrow" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
@@ -707,54 +605,10 @@ src="https://www.facebook.com/tr?id=3300124963501472&ev=PageView&noscript=1"/></
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V6M16 20v-8M22 20V4"/></svg>
             </span>
           </div>
-          <h3>COMECE<br>A VENDER</h3>
-          <p>Receba os produtos e conte com o suporte comercial da Texas pros próximos pedidos.</p>
+          <h3>VENDA MAIS<br>E LUCRE MAIS</h3>
+          <p>Com o apoio completo da Texas Química.</p>
         </li>
       </ol>
-    </div>
-  </section>
-
-  <!-- ============= FAQ ============= -->
-  <section class="section reveal" id="faq" aria-labelledby="h-faq">
-    <div class="container">
-      <header class="section-head">
-        <h2 id="h-faq" class="section-title">DÚVIDAS <span class="text-red">FREQUENTES</span></h2>
-        <p class="section-sub">Tira suas principais dúvidas antes de solicitar a tabela.</p>
-      </header>
-      <div style="max-width: 720px; margin: 0 auto;">
-        <details style="border-bottom: 1px solid rgba(255,255,255,0.08); padding: 0.75rem 0;">
-          <summary style="cursor: pointer; font-weight: 600; font-size: 0.95rem; padding: 0.2rem 0; list-style-position: outside;">Quem pode comprar diretamente da Texas Química?</summary>
-          <p style="margin-top: 0.5rem; line-height: 1.5; opacity: 0.8; font-size: 0.9rem;">O atendimento desta página é direcionado a lojas e distribuidoras de produtos automotivos.</p>
-        </details>
-        <details style="border-bottom: 1px solid rgba(255,255,255,0.08); padding: 0.75rem 0;">
-          <summary style="cursor: pointer; font-weight: 600; font-size: 0.95rem; padding: 0.2rem 0;">Existe pedido mínimo?</summary>
-          <p style="margin-top: 0.5rem; line-height: 1.5; opacity: 0.8; font-size: 0.9rem;">Sim. Os pedidos comerciais começam a partir de <strong>R$ 5.000 em produtos</strong>.</p>
-        </details>
-        <details style="border-bottom: 1px solid rgba(255,255,255,0.08); padding: 0.75rem 0;">
-          <summary style="cursor: pointer; font-weight: 600; font-size: 0.95rem; padding: 0.2rem 0;">Posso escolher os produtos do pedido?</summary>
-          <p style="margin-top: 0.5rem; line-height: 1.5; opacity: 0.8; font-size: 0.9rem;">Sim. O mix pode ser montado conforme o perfil da sua empresa, a disponibilidade dos produtos e as condições apresentadas pelo time comercial.</p>
-        </details>
-        <details style="border-bottom: 1px solid rgba(255,255,255,0.08); padding: 0.75rem 0;">
-          <summary style="cursor: pointer; font-weight: 600; font-size: 0.95rem; padding: 0.2rem 0;">Como recebo os preços?</summary>
-          <p style="margin-top: 0.5rem; line-height: 1.5; opacity: 0.8; font-size: 0.9rem;">Após preencher o formulário, nossa equipe comercial entra em contato pra apresentar a linha e as condições disponíveis pra sua empresa.</p>
-        </details>
-        <details style="border-bottom: 1px solid rgba(255,255,255,0.08); padding: 0.75rem 0;">
-          <summary style="cursor: pointer; font-weight: 600; font-size: 0.95rem; padding: 0.2rem 0;">A Texas atende minha região?</summary>
-          <p style="margin-top: 0.5rem; line-height: 1.5; opacity: 0.8; font-size: 0.9rem;">Disponibilidade, prazos e condições logísticas são analisados conforme a localização da empresa.</p>
-        </details>
-        <details style="border-bottom: 1px solid rgba(255,255,255,0.08); padding: 0.75rem 0;">
-          <summary style="cursor: pointer; font-weight: 600; font-size: 0.95rem; padding: 0.2rem 0;">Preciso já vender produtos automotivos?</summary>
-          <p style="margin-top: 0.5rem; line-height: 1.5; opacity: 0.8; font-size: 0.9rem;">A página é direcionada a lojas e distribuidoras que já atuam ou estão estruturando entrada no segmento. O time comercial avalia o perfil informado.</p>
-        </details>
-        <details style="border-bottom: 1px solid rgba(255,255,255,0.08); padding: 0.75rem 0;">
-          <summary style="cursor: pointer; font-weight: 600; font-size: 0.95rem; padding: 0.2rem 0;">Existe tabela de preços pra revendedores?</summary>
-          <p style="margin-top: 0.5rem; line-height: 1.5; opacity: 0.8; font-size: 0.9rem;">Sim. As condições são apresentadas após o cadastro e variam conforme produtos, quantidades, região e volume do pedido.</p>
-        </details>
-        <details style="border-bottom: 1px solid rgba(255,255,255,0.08); padding: 0.75rem 0;">
-          <summary style="cursor: pointer; font-weight: 600; font-size: 0.95rem; padding: 0.2rem 0;">Posso fazer novos pedidos depois da primeira compra?</summary>
-          <p style="margin-top: 0.5rem; line-height: 1.5; opacity: 0.8; font-size: 0.9rem;">Sim. O atendimento continua disponível pra reposições e ampliação do portfólio.</p>
-        </details>
-      </div>
     </div>
   </section>
 
@@ -763,9 +617,8 @@ src="https://www.facebook.com/tr?id=3300124963501472&ev=PageView&noscript=1"/></
     <div class="container">
       <div class="form-wrap">
         <div class="form-copy">
-          <h2 id="h-form" class="section-title">RECEBA AS <br>CONDIÇÕES COMERCIAIS <br>PARA <span class="text-red">SUA EMPRESA</span></h2>
-          <p class="section-sub">Preencha os dados para conhecer a linha Texas, receber as informações comerciais e conversar com um especialista.</p>
-          <p class="section-sub" style="margin-top: 1rem; opacity: 0.75; font-size: 0.9rem;">Atendimento direcionado a lojas e distribuidoras.<br>Pedidos comerciais a partir de <strong>R$ 5.000 em produtos</strong>.</p>
+          <h2 id="h-form" class="section-title">PRONTO PARA LEVAR <br>A LINHA TEXAS PARA <br><span class="text-red">SUA LOJA?</span></h2>
+          <p class="section-sub">Preencha o formulário e solicite sua condição comercial.<br>Nosso time entrará em contato o mais breve possível.</p>
         </div>
         <form class="form-card" id="form-solicitar" action="#" method="post" novalidate aria-live="polite">
           <ul class="form-trust" role="list">
@@ -773,148 +626,50 @@ src="https://www.facebook.com/tr?id=3300124963501472&ev=PageView&noscript=1"/></
             <li><span aria-hidden="true">✓</span> Sem compromisso</li>
             <li><span aria-hidden="true">✓</span> Resposta em até 24h</li>
           </ul>
-
-          <!-- Progress bar -->
-          <div style="margin: 1.5rem 0 1.75rem;">
-            <div style="display:flex; justify-content:space-between; margin-bottom: 0.5rem; font-size: 0.8rem; opacity: 0.75;">
-              <span id="step-label">Etapa 1 de 3 · Seus dados</span>
-              <span id="step-percent">33%</span>
-            </div>
-            <div style="width:100%; height: 6px; background: rgba(255,255,255,0.1); border-radius: 999px; overflow: hidden;">
-              <div id="step-progress" style="width: 33%; height: 100%; background: linear-gradient(90deg, #e53935, #ff6b6b); border-radius: 999px; transition: width 0.35s ease;"></div>
-            </div>
+          <div class="form-grid">
+            <label class="form-field">
+              <span class="form-label">Nome completo</span>
+              <input type="text" name="nome" placeholder="Seu nome" required autocomplete="name">
+            </label>
+            <label class="form-field">
+              <span class="form-label">Empresa / Loja</span>
+              <input type="text" name="empresa" placeholder="Nome do seu negócio" required autocomplete="organization">
+            </label>
+            <label class="form-field">
+              <span class="form-label">E-mail</span>
+              <input type="email" name="email" placeholder="voce@exemplo.com" required autocomplete="email" inputmode="email">
+            </label>
+            <label class="form-field">
+              <span class="form-label">Telefone / WhatsApp</span>
+              <input type="tel" name="telefone" placeholder="(11) 99999-9999" required autocomplete="tel" inputmode="tel" id="input-tel">
+            </label>
+            <label class="form-field">
+              <span class="form-label">Cidade</span>
+              <input type="text" name="cidade" placeholder="Sua cidade" required autocomplete="address-level2">
+            </label>
+            <label class="form-field">
+              <span class="form-label">Estado</span>
+              <select name="estado" required autocomplete="address-level1">
+                <option value="" disabled selected>Selecione</option>
+                <option>AC</option><option>AL</option><option>AP</option><option>AM</option>
+                <option>BA</option><option>CE</option><option>DF</option><option>ES</option>
+                <option>GO</option><option>MA</option><option>MT</option><option>MS</option>
+                <option>MG</option><option>PA</option><option>PB</option><option>PR</option>
+                <option>PE</option><option>PI</option><option>RJ</option><option>RN</option>
+                <option>RS</option><option>RO</option><option>RR</option><option>SC</option>
+                <option>SP</option><option>SE</option><option>TO</option>
+              </select>
+            </label>
+            <label class="form-field form-field-full">
+              <span class="form-label">Mensagem <span class="form-optional">(opcional)</span></span>
+              <textarea name="mensagem" placeholder="Conte um pouco sobre seu negócio" rows="2"></textarea>
+            </label>
           </div>
-
-          <!-- ETAPA 1: CONTATO -->
-          <div class="form-step" data-step="1">
-            <div class="form-grid">
-              <label class="form-field form-field-full">
-                <span class="form-label">Nome completo</span>
-                <input type="text" name="nome" placeholder="Digite seu nome" required autocomplete="name">
-              </label>
-              <label class="form-field form-field-full">
-                <span class="form-label">WhatsApp</span>
-                <input type="tel" name="telefone" placeholder="(11) 99999-9999" required autocomplete="tel" inputmode="tel" id="input-tel">
-              </label>
-              <label class="form-field form-field-full">
-                <span class="form-label">E-mail comercial</span>
-                <input type="email" name="email" placeholder="voce@empresa.com" required autocomplete="email" inputmode="email">
-              </label>
-            </div>
-          </div>
-
-          <!-- ETAPA 2: EMPRESA -->
-          <div class="form-step" data-step="2" style="display:none;">
-            <div class="form-grid">
-              <label class="form-field form-field-full">
-                <span class="form-label">Nome da empresa</span>
-                <input type="text" name="empresa" placeholder="Nome da empresa" required autocomplete="organization">
-              </label>
-              <label class="form-field form-field-full">
-                <span class="form-label">CNPJ</span>
-                <input type="text" name="cnpj" placeholder="00.000.000/0000-00" required inputmode="numeric" id="input-cnpj">
-              </label>
-              <label class="form-field">
-                <span class="form-label">Cidade</span>
-                <input type="text" name="cidade" placeholder="Sua cidade" required autocomplete="address-level2">
-              </label>
-              <label class="form-field">
-                <span class="form-label">Estado</span>
-                <select name="estado" required autocomplete="address-level1">
-                  <option value="" disabled selected>UF</option>
-                  <option>AC</option><option>AL</option><option>AP</option><option>AM</option>
-                  <option>BA</option><option>CE</option><option>DF</option><option>ES</option>
-                  <option>GO</option><option>MA</option><option>MT</option><option>MS</option>
-                  <option>MG</option><option>PA</option><option>PB</option><option>PR</option>
-                  <option>PE</option><option>PI</option><option>RJ</option><option>RN</option>
-                  <option>RS</option><option>RO</option><option>RR</option><option>SC</option>
-                  <option>SP</option><option>SE</option><option>TO</option>
-                </select>
-              </label>
-              <label class="form-field form-field-full">
-                <span class="form-label">Qual é o perfil da sua empresa?</span>
-                <select name="perfil_empresa" required>
-                  <option value="" disabled selected>Selecione</option>
-                  <option>Loja de produtos automotivos</option>
-                  <option>Distribuidora de produtos automotivos</option>
-                </select>
-              </label>
-            </div>
-          </div>
-
-          <!-- ETAPA 3: QUALIFICACAO -->
-          <div class="form-step" data-step="3" style="display:none;">
-            <div class="form-grid">
-              <label class="form-field form-field-full">
-                <span class="form-label">Sua empresa já comercializa produtos automotivos?</span>
-                <select name="ja_comercializa" required>
-                  <option value="" disabled selected>Selecione</option>
-                  <option>Sim, já trabalhamos com uma linha completa</option>
-                  <option>Sim, mas queremos ampliar nosso portfólio</option>
-                  <option>Estamos iniciando no segmento</option>
-                </select>
-              </label>
-              <label class="form-field form-field-full">
-                <span class="form-label">Como sua empresa realiza as vendas?</span>
-                <select name="canal_vendas" required>
-                  <option value="" disabled selected>Selecione</option>
-                  <option>Loja física</option>
-                  <option>Loja física e vendas online</option>
-                  <option>E-commerce próprio</option>
-                  <option>Vendedores externos</option>
-                  <option>Distribuição para outras empresas</option>
-                </select>
-              </label>
-              <label class="form-field form-field-full">
-                <span class="form-label">Volume inicial de compra pretendido</span>
-                <select name="volume_compra" required>
-                  <option value="" disabled selected>Selecione</option>
-                  <option>De R$ 5.000 a R$ 9.999</option>
-                  <option>De R$ 10.000 a R$ 19.999</option>
-                  <option>De R$ 20.000 a R$ 49.999</option>
-                  <option>Acima de R$ 50.000</option>
-                </select>
-              </label>
-              <label class="form-field form-field-full">
-                <span class="form-label">Em quanto tempo pretende realizar o pedido?</span>
-                <select name="prazo_pedido" required>
-                  <option value="" disabled selected>Selecione</option>
-                  <option>O quanto antes</option>
-                  <option>Nos próximos 15 dias</option>
-                  <option>Nos próximos 30 dias</option>
-                  <option>Ainda estou avaliando</option>
-                </select>
-              </label>
-              <label class="form-field form-field-full">
-                <span class="form-label">Qual é o seu cargo na empresa?</span>
-                <select name="cargo" required>
-                  <option value="" disabled selected>Selecione</option>
-                  <option>Proprietário ou sócio</option>
-                  <option>Diretor</option>
-                  <option>Gerente</option>
-                  <option>Responsável por compras</option>
-                  <option>Responsável comercial</option>
-                </select>
-              </label>
-            </div>
-          </div>
-
-          <!-- Botoes navegacao -->
-          <div style="display:flex; gap: 0.75rem; margin-top: 1.25rem;">
-            <button type="button" id="btn-prev" class="btn btn-ghost" style="flex: 1; display: none;">
-              ← Voltar
-            </button>
-            <button type="button" id="btn-next" class="btn btn-primary" style="flex: 2;">
-              Próximo <span aria-hidden="true">→</span>
-            </button>
-            <button type="submit" id="btn-submit" class="btn btn-primary form-submit" style="flex: 2; display: none;">
-              <span class="form-submit-label">QUERO RECEBER A TABELA <span aria-hidden="true">→</span></span>
-              <span class="form-submit-spinner" aria-hidden="true"></span>
-            </button>
-          </div>
-
-          <p style="margin-top: 1rem; font-size: 0.75rem; opacity: 0.6; line-height: 1.5;">Ao enviar seus dados, você autoriza o contato da Texas Química por telefone, WhatsApp ou e-mail. Dados usados exclusivamente para atendimento comercial.</p>
-          <p class="form-success" role="status" hidden style="margin-top: 1rem;">
+          <button type="submit" class="btn btn-primary btn-full form-submit">
+            <span class="form-submit-label">SOLICITAR CONDIÇÃO COMERCIAL <span aria-hidden="true">→</span></span>
+            <span class="form-submit-spinner" aria-hidden="true"></span>
+          </button>
+          <p class="form-success" role="status" hidden>
             <span aria-hidden="true">✓</span> Recebemos sua solicitação. Nosso time entrará em contato em até 24h.
           </p>
         </form>
@@ -930,10 +685,10 @@ src="https://www.facebook.com/tr?id=3300124963501472&ev=PageView&noscript=1"/></
       </a>
       <nav class="footer-nav" aria-label="Rodapé">
         <a href="#produtos">PRODUTOS</a>
-        <a href="#lojistas">PARA LOJISTAS</a>
-        <a href="#distribuidores">PARA DISTRIBUIDORES</a>
         <a href="#vantagens">VANTAGENS</a>
-        <a href="#faq">DÚVIDAS</a>
+        <a href="#revendedores">PARA REVENDEDORES</a>
+        <a href="#suporte">SUPORTE</a>
+        <a href="#sobre">SOBRE NÓS</a>
         <a href="#solicitar">CONTATO</a>
       </nav>
       <ul class="footer-social" role="list" aria-label="Redes sociais e contato">
@@ -960,7 +715,7 @@ src="https://www.facebook.com/tr?id=3300124963501472&ev=PageView&noscript=1"/></
         <span aria-hidden="true">•</span>
         <span>Cajamar, SP</span>
       </address>
-      <p class="footer-copy">© 2026 Texas Química. Todos os direitos reservados.</p>
+      <p class="footer-copy">© 2025 Texas Química. Todos os direitos reservados.</p>
     </div>
   </footer>
 
@@ -1038,76 +793,6 @@ src="https://www.facebook.com/tr?id=3300124963501472&ev=PageView&noscript=1"/></
     });
   }
 
-  // Mascara CNPJ
-  const cnpj = document.getElementById('input-cnpj');
-  if (cnpj) {
-    cnpj.addEventListener('input', (e) => {
-      let v = e.target.value.replace(/\D/g, '').slice(0, 14);
-      if (v.length > 12) v = v.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{0,2}).*/, '$1.$2.$3/$4-$5');
-      else if (v.length > 8) v = v.replace(/(\d{2})(\d{3})(\d{3})(\d{0,4}).*/, '$1.$2.$3/$4');
-      else if (v.length > 5) v = v.replace(/(\d{2})(\d{3})(\d{0,3}).*/, '$1.$2.$3');
-      else if (v.length > 2) v = v.replace(/(\d{2})(\d{0,3}).*/, '$1.$2');
-      e.target.value = v;
-    });
-  }
-
-  // ============= MULTI-STEP FORM (3 etapas com progress bar) =============
-  (function multiStep() {
-    const formEl = document.getElementById('form-solicitar');
-    if (!formEl) return;
-    const steps = formEl.querySelectorAll('.form-step');
-    const btnPrev = document.getElementById('btn-prev');
-    const btnNext = document.getElementById('btn-next');
-    const btnSubmit = document.getElementById('btn-submit');
-    const progressBar = document.getElementById('step-progress');
-    const stepLabel = document.getElementById('step-label');
-    const stepPercent = document.getElementById('step-percent');
-    const labels = ['Seus dados', 'Sua empresa', 'Perfil comercial'];
-    let current = 1;
-    const total = steps.length;
-
-    function updateUI() {
-      steps.forEach(s => {
-        s.style.display = parseInt(s.dataset.step, 10) === current ? 'block' : 'none';
-      });
-      const pct = Math.round((current / total) * 100);
-      progressBar.style.width = pct + '%';
-      stepPercent.textContent = pct + '%';
-      stepLabel.textContent = 'Etapa ' + current + ' de ' + total + ' · ' + labels[current - 1];
-      btnPrev.style.display = current > 1 ? 'inline-flex' : 'none';
-      btnNext.style.display = current < total ? 'inline-flex' : 'none';
-      btnSubmit.style.display = current === total ? 'inline-flex' : 'none';
-      // Scroll suave pro topo do form
-      formEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-
-    function validateStep(n) {
-      const step = formEl.querySelector('.form-step[data-step="' + n + '"]');
-      const fields = step.querySelectorAll('input[required], select[required], textarea[required]');
-      for (let i = 0; i < fields.length; i++) {
-        if (!fields[i].checkValidity()) {
-          fields[i].focus();
-          fields[i].reportValidity();
-          track('form_step_error', { step: n, field: fields[i].name });
-          return false;
-        }
-      }
-      return true;
-    }
-
-    btnNext.addEventListener('click', () => {
-      if (!validateStep(current)) return;
-      track('form_step_next', { from: current, to: current + 1 });
-      current = Math.min(current + 1, total);
-      updateUI();
-    });
-    btnPrev.addEventListener('click', () => {
-      current = Math.max(current - 1, 1);
-      updateUI();
-    });
-    updateUI();
-  })();
-
   // Helper analytics: dispara em GA4 e Meta Pixel simultaneamente
   const track = (name, params) => {
     if (typeof gtag === 'function') gtag('event', name, params || {});
@@ -1160,28 +845,19 @@ src="https://www.facebook.com/tr?id=3300124963501472&ev=PageView&noscript=1"/></
         currency: 'BRL'
       });
 
-      // Monta payload completo pra Apps Script (planilha + CRM) — schema v2
+      // Monta payload completo pra Apps Script (planilha + CRM)
       const payload = {
         nome: form.nome.value.trim(),
         empresa: form.empresa.value.trim(),
-        cnpj: (form.cnpj?.value || '').trim(),
         email: form.email.value.trim(),
         telefone: form.telefone.value.trim(),
         cidade: form.cidade.value.trim(),
         estado: estado,
-        // Novos campos qualificadores do form multi-step
-        perfil_empresa: (form.perfil_empresa?.value || '').trim(),
-        ja_comercializa: (form.ja_comercializa?.value || '').trim(),
-        canal_vendas: (form.canal_vendas?.value || '').trim(),
-        volume_compra: (form.volume_compra?.value || '').trim(),
-        prazo_pedido: (form.prazo_pedido?.value || '').trim(),
-        cargo: (form.cargo?.value || '').trim(),
-        // Contexto
+        mensagem: (form.mensagem.value || '').trim(),
         url: window.location.href,
         referrer: document.referrer || '',
         user_agent: navigator.userAgent,
         timestamp_iso: new Date().toISOString(),
-        form_version: 'v2',
         utm_source: getUTM('utm_source'),
         utm_medium: getUTM('utm_medium'),
         utm_campaign: getUTM('utm_campaign'),

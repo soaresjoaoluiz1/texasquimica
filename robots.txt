@@ -1,5 +1,10 @@
 User-agent: *
 Allow: /
-Disallow: /assets/img/tmp/
+
+# Bloqueia arquivos internos / dev
+Disallow: /apps-script/
+Disallow: /index-v1-backup.html
+Disallow: /MIGRACAO-v1-v2.md
+Disallow: /README.md
 
 Sitemap: https://revendedor.texasquimica.com.br/sitemap.xml
